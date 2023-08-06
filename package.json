@@ -1,6 +1,5 @@
 {
   "name": "feature-flagging-admin-ui",
-  "homepage": "https://henryjacobs.us/Feature-Flagging-Admin-UI",
   "private": true,
   "version": "0.0.0",
   "type": "module",
