@@ -4,14 +4,13 @@ const AccountOptionsStyled = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #161616 ;
     height: 50px;
     width: 60px;
     border-radius: 30%;
     cursor: pointer;
 
     &:hover {
-        background-color: #353434;
+        background-color: #3f3e3e;
     }
 `
 

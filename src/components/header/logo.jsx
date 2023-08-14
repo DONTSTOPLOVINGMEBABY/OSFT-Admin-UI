@@ -6,7 +6,7 @@ function Logo () {
     return (
         <LogoStyled to='home'>
             <LogoImage src={logo_svg} alt='osff-logo'/>
-            <LogoText>OSFF</LogoText>
+            <LogoText>OSFT</LogoText>
         </LogoStyled>
     )
 }
