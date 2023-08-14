@@ -2,7 +2,7 @@ import { createBrowserRouter, createRoutesFromElements, RouterProvider,  Route }
 import { Root } from "./components/router"
 import HomePage from "./pages/Home/home"
 
-function Router () {
+function Router ({children}) {
 
     const router = createBrowserRouter(
         createRoutesFromElements(
@@ -12,7 +12,7 @@ function Router () {
         )
     ) 
 
-    return <RouterProvider router={router}/>
+    return <RouterProvider router={router}>{children}</RouterProvider>
 }
 
 export default Router
