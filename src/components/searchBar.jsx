@@ -14,7 +14,7 @@ function SearchBar({ set_results }) {
     const searchInput = useRef()
 
     const clearSearch = (e) => {
-        set_results(e.target.value)
+        set_results('')
         searchInput.current.value = ''
     }
     
