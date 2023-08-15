@@ -1,5 +1,5 @@
 import logo_svg from '../../assets/angle-bracket.svg'
-import { LogoStyled, LogoImage, LogoText } from '../../styles/header/logo.styled'
+import { LogoStyled, LogoImage, LogoText } from '../../styles/components/header/logo.styled'
 
 function Logo () { 
 

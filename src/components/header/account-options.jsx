@@ -1,6 +1,6 @@
 import profile_icon from '../../assets/profile-icon.svg'
 import down_arrow from '../../assets/down-arrow.svg'
-import { AccountOptionsStyled, DownArrow, ProfilePhoto } from '../../styles/header/account-options.styled'
+import { AccountOptionsStyled, DownArrow, ProfilePhoto } from '../../styles/components/header/account-options.styled'
 
 function AccountOptions () {
 

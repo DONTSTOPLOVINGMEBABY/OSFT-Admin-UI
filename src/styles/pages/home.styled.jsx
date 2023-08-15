@@ -3,7 +3,7 @@ import styled from "styled-components"
 const HomePageStyled = styled.div`
     display: flex;
     width: 100%;
-    height: 80vh ; 
+    min-height: 60% ;
     background-color: ${ props => props.theme.background.main }; 
 `
 

@@ -1,4 +1,4 @@
-import { AppNavigationStyled, NavLink } from "../../styles/header/app-navigation.styled"
+import { AppNavigationStyled, NavLink } from "../../styles/components/header/app-navigation.styled"
 
 function AppNavigation () {
     return (
