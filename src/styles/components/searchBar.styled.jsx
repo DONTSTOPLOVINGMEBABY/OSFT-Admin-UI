@@ -3,6 +3,7 @@ import styled from "styled-components"
 const SearchBarStyled = styled.div`
     height : 100% ;
     max-width: 400px;
+    width: 100%;
     flex-grow : 1 ;
     display: flex;
     border: ${ props => props.theme.font.color } solid 1px ; 
@@ -22,7 +23,6 @@ const SearchBarIcon = styled.img`
 `
 
 const SearchIcon = styled(SearchBarIcon)`
-    
 `
 
 const ExitIcon = styled(SearchBarIcon)`
@@ -42,8 +42,6 @@ const SearchInput = styled.input`
         border: none;
     }
 `
-
-
 
 export {
     SearchBarStyled, 
