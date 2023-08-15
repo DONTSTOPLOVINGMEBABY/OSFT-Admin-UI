@@ -6,6 +6,10 @@ export default {
     }, 
     'font' : {
         'family' : 'Roboto', 
-        'color' : '#fff'
+        'color' : '#EEEEFC',
+        'info-accented-color' : '#635DC5', 
+    }, 
+    'buttons' : {
+        'background' : '#4C4992'
     }
 }
