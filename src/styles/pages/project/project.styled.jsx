@@ -30,7 +30,8 @@ const NumProjectsStyled = styled.span`
 
 const ProjectOverviewStyled = styled.div`
     display: flex;
-    flex-direction: column ; 
+    flex-direction: column ;
+    justify-content : space-between;
     background-color: inherit;
     width: 300px;
     height: 102px;
@@ -54,12 +55,20 @@ const OverviewTitle = styled.span`
 const ProjectDetails = styled.div`
     display: flex;
     align-items: center;
+    justify-content: space-around;
 `
 
-const Detail = styled.div`
+const MetricBox = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
     color: ${ props => props.theme.font.color };
+    font-size: .9rem;
+`
+
+const ProjectMetric = styled.span`
+    font-weight: 700;
+    color: ${ props => props.theme.font.info_accented_color};
 `
 
 
@@ -72,4 +81,6 @@ export {
     ProjectOverviewStyled, 
     OverviewTitle, 
     ProjectDetails, 
+    MetricBox, 
+    ProjectMetric
 } 

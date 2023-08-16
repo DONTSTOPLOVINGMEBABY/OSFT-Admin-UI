@@ -7,7 +7,7 @@ export default {
     'font' : {
         'family' : 'Roboto', 
         'color' : '#EEEEFC',
-        'info-accented-color' : '#635DC5', 
+        'info_accented_color' : '#635DC5', 
     }, 
     'buttons' : {
         'background' : '#4C4992'
