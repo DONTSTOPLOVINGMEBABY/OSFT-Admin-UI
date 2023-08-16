@@ -5,6 +5,7 @@ import {
 function HomePage () {
     return ( 
         <HomePageStyled>
+
         </HomePageStyled> 
     ) 
 }
