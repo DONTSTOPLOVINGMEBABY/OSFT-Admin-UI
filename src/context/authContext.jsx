@@ -55,6 +55,7 @@ function AuthProvider ({ children }) {
                 setLoading(false)
                 return { data : data, status : request.status }
             }
+            navigate('/home')
             setUser(data)
             setLoading(false)
         } catch (error) {
@@ -72,7 +73,7 @@ function AuthProvider ({ children }) {
     }
 
     return <AuthContext.Provider value={context}>
-        { loading ? <Spinner/> : <Outlet/> }
+        { loading ? <Spinner/> : children }
     </AuthContext.Provider>
 }
 
