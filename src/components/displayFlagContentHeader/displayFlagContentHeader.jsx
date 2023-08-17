@@ -1,4 +1,4 @@
-import { DisplayFlagContentHeaderStyled } from "../../styles/components/displayFlagContentHeader/displayFlagContentHeader.styled";
+import { DisplayFlagContentHeaderStyled } from "../../styles/components/displayFlagContentHeader.styled";
 import NumContent from "./numContent";
 import SearchBar from "../searchBar";
 import NewButton from "../newButton";
