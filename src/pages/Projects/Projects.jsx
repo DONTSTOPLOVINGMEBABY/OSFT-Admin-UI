@@ -2,7 +2,6 @@ import { useEffect, useState } from "react"
 import { useAuth } from "../../context/authContext"
 import DisplayFlagContentBody from "../../components/flagContentBody"
 import { useQuery } from "react-query"
-import compareStrings from "../../utils/compareStrings"
 import { 
     ProjectPageStyled, 
 } from "../../styles/pages/project.styled"
@@ -36,14 +35,6 @@ function ProjectPage () {
         return <div>Le error</div>
     }
 
-    const set_results = (string) => {
-        string = string.trim()
-        if (string === ''){
-            return setDisplayProjects(data.names)
-        }
-        let new_results = data.names.filter( projectName => compareStrings(string, projectName))
-        setDisplayProjects(new_results)
-    }
     const newProject = () => {}
 
 
@@ -52,7 +43,8 @@ function ProjectPage () {
             <DisplayFlagContentHeader 
             item_name='Projects'
             num_items={data.numProjects}
-            set_results={set_results}
+            set_function={setDisplayProjects}
+            initialSearchSpace={data.names}
             buttonModal={newProject}
             buttonMessage='New Project'
             />

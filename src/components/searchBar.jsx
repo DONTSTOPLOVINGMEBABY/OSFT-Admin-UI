@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from "react";
+import compareStrings from "../utils/compareStrings";
 import { 
     SearchBarStyled,  
     SearchIcon, 
@@ -9,13 +10,22 @@ import search_svg from "../assets/search-icon.svg"
 import exit_svg from "../assets/exit.svg"
 
 
-function SearchBar({ set_results }) {
+function SearchBar({ set_function, initialSearchSpace }) {
 
     const searchInput = useRef()
 
     const clearSearch = (e) => {
-        set_results('')
+        set_function(initialSearchSpace)
         searchInput.current.value = ''
+    }
+
+    const set_results = (string) => {
+        string = string.trim()
+        if (string === ''){
+            return set_function(initialSearchSpace)
+        }
+        let new_results = initialSearchSpace.filter( projectName => compareStrings(string, projectName))
+        set_function(new_results)
     }
     
     return (
