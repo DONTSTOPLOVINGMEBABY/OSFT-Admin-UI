@@ -1,19 +1,17 @@
 import { useEffect, useState } from "react"
+import { useAuth } from "../../context/authContext"
 import { useLoaderData } from "react-router-dom"
 import { useQuery } from "react-query"
 import compareStrings from "../../utils/compareStrings"
 import { 
     ProjectPageStyled, 
-    ProjectModalHeader, 
     DisplayProjects
-} from "../../styles/pages/project/project.styled"
+} from "../../styles/pages/project.styled"
 import loaders from "../../loaders"
-import NumProjects from "./numberOfProjects"
-import SearchBar from "../../components/searchBar"
-import NewButton from "../../components/newButton"
 import ProjectOverview from "./project-overview"
 import Spinner from "../../components/spinner"
-import { useAuth } from "../../context/authContext"
+import DisplayFlagContentHeader from "../../components/displayFlagContentHeader/displayFlagContentHeader"
+
 
 function ProjectPage () {
 
@@ -52,11 +50,13 @@ function ProjectPage () {
 
     return ( 
         <ProjectPageStyled>
-            <ProjectModalHeader>
-                <NumProjects numprojects={data.numProjects} />
-                <SearchBar set_results={set_results} />
-                <NewButton onClick={newProject}>New Project</NewButton>
-            </ProjectModalHeader>
+            <DisplayFlagContentHeader 
+            item_name='Projects'
+            num_items={data.numProjects}
+            set_results={set_results}
+            buttonModal={newProject}
+            buttonMessage='New Project'
+            />
             <DisplayProjects>
                 { displayProjects.map(projectName => {
                     return ( 
