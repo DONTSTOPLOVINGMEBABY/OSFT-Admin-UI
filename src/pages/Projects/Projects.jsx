@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react"
 import { useAuth } from "../../context/authContext"
-import { useLoaderData } from "react-router-dom"
+import DisplayFlagContentBody from "../../components/flagContentBody"
 import { useQuery } from "react-query"
 import compareStrings from "../../utils/compareStrings"
 import { 
     ProjectPageStyled, 
-    DisplayProjects
 } from "../../styles/pages/project.styled"
 import loaders from "../../loaders"
 import ProjectOverview from "./project-overview"
@@ -57,7 +56,7 @@ function ProjectPage () {
             buttonModal={newProject}
             buttonMessage='New Project'
             />
-            <DisplayProjects>
+            <DisplayFlagContentBody>
                 { displayProjects.map(projectName => {
                     return ( 
                         <ProjectOverview  
@@ -66,7 +65,7 @@ function ProjectPage () {
                         />
                     ) 
                 })}
-            </DisplayProjects>
+            </DisplayFlagContentBody>
         </ProjectPageStyled> 
     ) 
 }
