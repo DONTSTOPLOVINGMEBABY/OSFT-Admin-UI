@@ -10,4 +10,15 @@ const SpinnerStyled = styled.div`
     background-color: ${props => props.theme.background.content};
 `
 
-export default SpinnerStyled
+const AdjustSpinnerStyled = styled.div`
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+export { 
+    SpinnerStyled, 
+    AdjustSpinnerStyled, 
+} 
