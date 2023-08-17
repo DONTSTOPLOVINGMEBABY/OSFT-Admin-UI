@@ -2,7 +2,8 @@ export default {
     'background' : {
         'main' : '#1A1924', 
         'content' : '#222130',
-        'contrast' : '#094B67'
+        'contrast' : '#094B67', 
+        'feature_info_header' : '#2B2A3C', 
     }, 
     'font' : {
         'family' : 'Roboto', 
