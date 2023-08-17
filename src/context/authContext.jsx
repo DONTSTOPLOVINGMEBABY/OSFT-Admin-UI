@@ -7,7 +7,7 @@ import {
 } from "react"
 
 import { useNavigate } from "react-router-dom"
-import Spinner from "../components/spinner"
+import Spinner from "../components/spinners/spinner"
 import { Outlet } from "react-router-dom"
 
 const AuthContext = createContext()

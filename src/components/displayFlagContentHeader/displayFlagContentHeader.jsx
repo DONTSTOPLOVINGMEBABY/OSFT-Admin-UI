@@ -3,11 +3,18 @@ import NumContent from "./numContent";
 import SearchBar from "../searchBar";
 import NewButton from "../newButton";
 
-function DisplayFlagContentHeader ({ num_items, item_name, set_results, buttonModal, buttonMessage }) {
+function DisplayFlagContentHeader ({ 
+    num_items, 
+    item_name, 
+    set_function, 
+    initialSearchSpace, 
+    buttonModal, 
+    buttonMessage 
+}) {
     return (
         <DisplayFlagContentHeaderStyled>
             <NumContent item_name={item_name} num_items={num_items}/>
-            <SearchBar set_results={set_results} />
+            <SearchBar set_function={set_function} initialSearchSpace={initialSearchSpace} />
             <NewButton onClick={buttonModal}> {buttonMessage} </NewButton>
         </DisplayFlagContentHeaderStyled>
     )

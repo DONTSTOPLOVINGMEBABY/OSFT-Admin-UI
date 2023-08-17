@@ -8,6 +8,7 @@ import ProjectPage from "./pages/Projects/Projects"
 import Login from "./pages/Login/login"
 import PrivateRoutes from "./context/privateRoute"
 import AuthProvider from "./context/authContext"
+import Features from "./pages/Features/features"
 
 
 function Router () {
@@ -17,11 +18,12 @@ function Router () {
             <AuthProvider>
                 <Header />
                 <Routes>
-                    <Route path="/login" element={<Login/>}/>
+                    <Route path="login" element={<Login/>}/>
                     {/* <Route path="/signup" element={<Signup/>}/> */}
                     <Route element={<PrivateRoutes/>}>
-                        <Route path="/home" element={<HomePage/>}/>
-                        <Route path="/projects" element={<ProjectPage/>}/>
+                        <Route path="home" element={<HomePage/>}/>
+                        <Route path="projects" element={<ProjectPage/>}/>
+                        <Route path="features" element={<Features/>}/>
                     </Route>
                 </Routes>
                 <Footer />

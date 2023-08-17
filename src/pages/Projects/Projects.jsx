@@ -7,7 +7,7 @@ import {
 } from "../../styles/pages/project.styled"
 import loaders from "../../loaders"
 import ProjectOverview from "./project-overview"
-import Spinner from "../../components/spinner"
+import Spinner from "../../components/spinners/spinner"
 import DisplayFlagContentHeader from "../../components/displayFlagContentHeader/displayFlagContentHeader"
 
 

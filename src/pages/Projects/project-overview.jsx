@@ -4,7 +4,7 @@ import {
     ProjectDetails, 
     MetricBox, 
     ProjectMetric
-} from "../../styles/pages/project/project.styled";
+} from "../../styles/pages/project.styled";
 import { useNavigate } from "react-router-dom";
 
 

@@ -1,6 +1,6 @@
 import { 
     HomePageStyled, 
-} from "../../styles/pages/home/home.styled"
+} from "../../styles/pages/home.styled"
 
 function HomePage () {
     return ( 
