@@ -10,8 +10,10 @@ import {
 import green_check_svg from '../../assets/green-check.svg'
 import red_exit_svg from '../../assets/red-exit.svg'
 import { useState } from "react"
+import { useMutation } from "react-query"
+import { useAuth } from "../../context/authContext"
 import AdjustableSpinner from "../../components/spinners/adjustableSizeSpinner"
-
+import loaders from "../../loaders"
 
 function SingleFeature ({
     name, 
@@ -22,9 +24,50 @@ function SingleFeature ({
     developmentEnabled
 }) {
 
+    const { user } = useAuth()
     const [production, setProduction] = useState(productionEnabled)
     const [development, setDevelopment] = useState(developmentEnabled)
+    const [productionLoading, setProductionLoading] = useState(false)
+    const [developmentLoading, setDevelopmentLoading] = useState(false)
 
+    const changeDevStatusMutation = useMutation({
+        mutationFn : (args) => {
+            return loaders.features.updateDevelopmentStatus(args)
+        }, 
+        onSuccess : (data) => {
+            let { development_status } = data
+            setDevelopment(development_status)
+            setDevelopmentLoading(false)
+        }
+    })
+
+    const changeProdStatusMutation = useMutation({
+        mutationFn : (args) => {
+            return loaders.features.updateProductionStatus(args)
+        }, 
+        onSuccess : (data) => {
+            let { production_status } = data
+            setProduction(production_status)
+            setProductionLoading(false)
+        }
+    })
+
+    const callProdMutation = () => {
+        setProductionLoading(true)
+        changeProdStatusMutation.mutate({
+            user, 
+            'featureName' : name, 
+            'projectName' : parentProject, 
+        })
+    }
+    const callDevMutation = () => {
+        setDevelopmentLoading(true)
+        changeDevStatusMutation.mutate({
+            user, 
+            'featureName' : name, 
+            'projectName' : parentProject, 
+        })
+    }
 
     return (
         <SingleFeatureBoxStyled>
@@ -36,14 +79,28 @@ function SingleFeature ({
             <Rightbox>
                 <First>{created}</First>
                 <Second>
-                    { production ? 
-                      <EnabledIcon src={green_check_svg}/> : 
-                      <EnabledIcon src={red_exit_svg}/> } 
+                    { 
+                        productionLoading ? 
+                        <AdjustableSpinner 
+                        height='24' 
+                        width='24' 
+                        radius='5'/> 
+                        : production ? 
+                            <EnabledIcon onClick={callProdMutation} src={green_check_svg}/> : 
+                            <EnabledIcon onClick={callProdMutation} src={red_exit_svg}/> 
+                    }   
                 </Second>
                 <Third>
-                    { development ? 
-                      <EnabledIcon src={green_check_svg}/> : 
-                      <EnabledIcon src={red_exit_svg}/> } 
+                    { 
+                        developmentLoading ? 
+                        <AdjustableSpinner 
+                        height='24' 
+                        width='24' 
+                        radius='5'/> 
+                        : development ? 
+                            <EnabledIcon onClick={callDevMutation} src={green_check_svg}/> : 
+                            <EnabledIcon onClick={callDevMutation} src={red_exit_svg}/> 
+                    }   
                 </Third>
             </Rightbox>
         </SingleFeatureBoxStyled>
