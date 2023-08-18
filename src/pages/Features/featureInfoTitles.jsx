@@ -16,7 +16,7 @@ function FeatureInfoTitles () {
                 <Third>Parent Project</Third>
             </Leftbox>
             <Rightbox>
-                <First>Created At</First>
+                <First>Created</First>
                 <Second>Production Enabled</Second>
                 <Third>Development Enabled</Third>
             </Rightbox>

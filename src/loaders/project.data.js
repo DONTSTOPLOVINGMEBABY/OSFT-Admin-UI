@@ -9,3 +9,10 @@ export default async function ProjectLoader (user) {
     }) 
     return await request.json()
 }
+
+/* 
+
+http://localhost:3000/app/projects
+
+https://feature-flagging-server-envproduction.up.railway.app/app/projects
+*/

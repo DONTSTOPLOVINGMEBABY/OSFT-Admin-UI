@@ -55,7 +55,6 @@ function AuthProvider ({ children }) {
                 setLoading(false)
                 return { data : data, status : request.status }
             }
-            navigate('/home')
             setUser(data)
             setLoading(false)
         } catch (error) {
@@ -81,3 +80,17 @@ export const useAuth = () => { return useContext(AuthContext) }
 
  
 export default AuthProvider
+
+/* 
+LOGIN
+--------
+http://localhost:3000/auth/login
+https://feature-flagging-server-envproduction.up.railway.app/auth/login
+
+LAUNCH-APP
+----------
+http://localhost:3000/auth/launch-app
+
+https://feature-flagging-server-envproduction.up.railway.app/auth/launch-app
+
+*/
