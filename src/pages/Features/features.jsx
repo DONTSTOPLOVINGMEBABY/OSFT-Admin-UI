@@ -20,7 +20,7 @@ function Features () {
 
     const { isLoading, isError, data, error } = useQuery({
         queryKey : ['features'], 
-        queryFn: () => loaders.features(user)
+        queryFn: () => loaders.features.FeaturesLoader(user)
     })
 
     useEffect( () => {
