@@ -8,7 +8,7 @@
         var segment = window.location.pathname
         var href = window.location.hostname
         if (segment){
-            window.location.replace('https://opensourcefeaturetoggles.com/index.html' + segment)
+            window.location.replace(`https://opensourcefeaturetoggles.com/index.html/${segment}` )
         }
         else {
             window.location.href('https://opensourcefeaturetoggles.com')
