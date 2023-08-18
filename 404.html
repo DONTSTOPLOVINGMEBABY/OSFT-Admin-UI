@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var segment = window.location.pathname
+        var href = window.location.hostname
+        if (segment){
+            window.location.replace('https://opensourcefeaturetoggles.com' + segment)
+        }
+        else {
+            window.location.href('https://opensourcefeaturetoggles.com')
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
