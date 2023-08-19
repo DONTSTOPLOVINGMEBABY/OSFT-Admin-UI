@@ -1,6 +1,6 @@
 export async function updateDevelopmentStatus ({user, featureName, projectName}) {
     let { accessToken } = user
-    let request = await fetch('http://localhost:3000/features/change-development-status', {
+    let request = await fetch('https://feature-flagging-server-envproduction.up.railway.app/features/change-development-status', {
         method : 'POST', 
         credentials : 'include',
         headers : {
@@ -17,7 +17,7 @@ export async function updateDevelopmentStatus ({user, featureName, projectName})
 
 export async function updateProductionStatus ({user, featureName, projectName}) {
     let { accessToken } = user
-    let request = await fetch('http://localhost:3000/features/change-production-status', {
+    let request = await fetch('https://feature-flagging-server-envproduction.up.railway.app/features/change-production-status', {
         method : 'POST', 
         credentials : 'include',
         headers : {
@@ -31,5 +31,14 @@ export async function updateProductionStatus ({user, featureName, projectName}) 
     })
     return await request.json()
 }
+
+/*
+http://localhost:3000/features/change-development-status
+
+http://localhost:3000/features/change-production-status
+
+https://feature-flagging-server-envproduction.up.railway.app/app/features
+
+*/
 
 
