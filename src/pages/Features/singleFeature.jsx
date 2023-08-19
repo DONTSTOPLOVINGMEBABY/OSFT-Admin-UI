@@ -10,7 +10,7 @@ import {
 import green_check_svg from '../../assets/green-check.svg'
 import red_exit_svg from '../../assets/red-exit.svg'
 import { useState } from "react"
-import { useMutation } from "react-query"
+import { useMutation, useQueryClient } from "react-query"
 import { useAuth } from "../../context/authContext"
 import AdjustableSpinner from "../../components/spinners/adjustableSizeSpinner"
 import loaders from "../../loaders"
@@ -29,6 +29,7 @@ function SingleFeature ({
     const [development, setDevelopment] = useState(developmentEnabled)
     const [productionLoading, setProductionLoading] = useState(false)
     const [developmentLoading, setDevelopmentLoading] = useState(false)
+    const queryClient = useQueryClient()
 
     const changeDevStatusMutation = useMutation({
         mutationFn : (args) => {
@@ -38,6 +39,7 @@ function SingleFeature ({
             let { development_status } = data
             setDevelopment(development_status)
             setDevelopmentLoading(false)
+            queryClient.invalidateQueries('features')
         }
     })
 
@@ -49,6 +51,7 @@ function SingleFeature ({
             let { production_status } = data
             setProduction(production_status)
             setProductionLoading(false)
+            queryClient.invalidateQueries('features')
         }
     })
 
