@@ -2,8 +2,9 @@ import { HeaderStyled, NavBar, MenuItems } from "../../styles/components/header/
 import Logo from "./logo"
 import AppNavigation from "./app-navigation"
 import AccountOptions from "./account-options"
-
-function Header () {
+import { useAuth } from '../../context/authContext'
+ 
+function LoggedInHeader () {
     return ( 
         <HeaderStyled>
             <NavBar>
@@ -15,6 +16,24 @@ function Header () {
             </NavBar>
         </HeaderStyled>
     )
+}
+
+function LoggedOutHeader () {
+    return ( 
+        <HeaderStyled>
+            <NavBar>
+                <Logo />
+            </NavBar>
+        </HeaderStyled>
+    )
+}
+
+
+function Header () {
+    
+    const { user } = useAuth()
+
+    return user ? <LoggedInHeader/> : <LoggedOutHeader/>
 }
 
 export default Header
