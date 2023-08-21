@@ -10,6 +10,7 @@ import PrivateRoutes from "./context/privateRoute"
 import PublicRoutes from "./components/router/publicRoutes"
 import AuthProvider from "./context/authContext"
 import Features from "./pages/Features/features"
+import Variables from "./pages/Variables/variables"
 
 
 function Router () {
@@ -28,6 +29,7 @@ function Router () {
                         <Route path="home" element={<HomePage/>}/>
                         <Route path="projects" element={<ProjectPage/>}/>
                         <Route path="features" element={<Features/>}/>
+                        <Route path="variables" element={<Variables/>}/>
                     </Route>
                 </Routes>
                 <Footer />
