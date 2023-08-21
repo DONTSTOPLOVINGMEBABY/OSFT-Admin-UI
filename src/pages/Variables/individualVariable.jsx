@@ -10,10 +10,12 @@ import { useAuth } from "../../context/authContext"
 import { useState } from "react"
 import { useQueryClient, useMutation } from "react-query"
 import AdjustableSpinner from "../../components/spinners/adjustableSizeSpinner"
+import loaders from "../../loaders"
 
 function IndividualVariable ({
     name, 
     parentFeatureName, 
+    parentProjectName, 
     productionEnabled, 
     developmentEnabled, 
     updatedAt
@@ -22,10 +24,61 @@ function IndividualVariable ({
     const { user } = useAuth()
     const [production, setProduction] = useState(productionEnabled)
     const [development, setDevelopment] = useState(developmentEnabled)
-    const [productionLoading, setProductionLoading] = useState(true)
-    const [developmentLoading, setDevelopmentLoading] = useState(true)
+    const [productionLoading, setProductionLoading] = useState(false)
+    const [developmentLoading, setDevelopmentLoading] = useState(false)
     const queryClient = useQueryClient()
 
+
+    const changeDevStatusMutation = useMutation({
+        mutationFn: (args) => {
+            return loaders.variables.updateVariableDevStatus(args)
+        }, 
+        onSuccess : (data) => {
+            console.log(data)
+            let { developmentEnabled } = data
+            setDevelopment(developmentEnabled)
+            setDevelopmentLoading(false)
+            queryClient.invalidateQueries('variables')
+        }, 
+        onError : (error) => {
+            console.log(error)
+        }
+    })
+
+    const changeProdStatusMutation = useMutation({
+        mutationFn : (args) => {
+            return loaders.variables.updateVariableProdStatus(args)
+        }, 
+        onSuccess : (data) => {
+            console.log(data)
+            let { productionEnabled } = data
+            setProduction(productionEnabled)
+            setProductionLoading(false)
+            queryClient.invalidateQueries('variables')
+        }, 
+        onError : (error) => {
+            console.log(error)
+        }
+    })
+
+    const callProdMutation = () => {
+        setProductionLoading(true)
+        changeProdStatusMutation.mutate({
+            user, 
+            variableName : name, 
+            parentFeatureName, 
+            parentProjectName, 
+        })
+    }
+    const callDevMutation = () => {
+        setDevelopmentLoading(true)
+        changeDevStatusMutation.mutate({
+            user, 
+            variableName : name, 
+            parentFeatureName, 
+            parentProjectName, 
+        })
+    }
 
     return (
         <VariableEntryStyled>
@@ -35,41 +88,33 @@ function IndividualVariable ({
             </LeftBox>
             <RightBox>
                 <RightBoxEntry text={updatedAt}/>
-                <RightBoxEntry>
-                     { 
+                <RightIconBoxEntry>
+                    { 
                         productionLoading ? 
                         <AdjustableSpinner 
                         height='24' 
                         width='24' 
                         radius='5'/> 
                         : production ? 
-                            <EnabledIcon src={variable_enabled}/> : 
-                            <EnabledIcon src={variable_disabled}/> 
+                            <EnabledIcon onClick={callProdMutation} src={variable_enabled}/> : 
+                            <EnabledIcon onClick={callProdMutation} src={variable_disabled}/> 
                     }   
-                </RightBoxEntry>
-                <RightBoxEntry text='Production Enabled'/>
+                </RightIconBoxEntry>
+                <RightIconBoxEntry>
+                    { 
+                        developmentLoading ? 
+                        <AdjustableSpinner 
+                        height='24' 
+                        width='24' 
+                        radius='5'/> 
+                        : development ? 
+                            <EnabledIcon onClick={callDevMutation} src={variable_enabled}/> : 
+                            <EnabledIcon onClick={callDevMutation} src={variable_disabled}/> 
+                    }  
+                </RightIconBoxEntry>
             </RightBox>
         </VariableEntryStyled>
     )
 }
 
 export default IndividualVariable
-
-
-/* 
-developmentEnabled
-: 
-true
-name
-: 
-"red-circle"
-parentFeatureName
-: 
-"circles"
-productionEnabled
-: 
-false
-updatedAt
-: 
-"8/1/2023"
-*/

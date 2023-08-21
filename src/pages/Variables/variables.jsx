@@ -38,8 +38,7 @@ function Variables () {
     const newVariable = () => {
         
     }
- 
-    console.log(data)
+
 
     return (
         <VariablePageStyled>
@@ -55,12 +54,12 @@ function Variables () {
                 <VariableTableTitles/>
                 { displayVariables.map( (variable, key) => {
                     let grabVariable = data[variable]
-                    console.log(grabVariable)
                     return (
                         <IndividualVariable
                         name={grabVariable.name}
                         parentFeatureName={grabVariable.parentFeatureName}
-                        updatedAt={grabVariable.createdAt}
+                        parentProjectName={grabVariable.parentProjectName}
+                        updatedAt={grabVariable.updatedAt}
                         productionEnabled={grabVariable.productionEnabled}
                         developmentEnabled={grabVariable.developmentEnabled}
                         key={key}

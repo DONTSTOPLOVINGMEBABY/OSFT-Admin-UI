@@ -4,6 +4,10 @@ import {
     updateDevelopmentStatus, 
     updateProductionStatus 
 } from "./postUpdateFeatureStatus"
+import { 
+    updateVariableDevStatus, 
+    updateVariableProdStatus, 
+} from '../loaders/postUpdateVariableStatus'
 import VariablesLoader from "./fetchVariables"
 
 const loaders = {
@@ -15,6 +19,8 @@ const loaders = {
     }, 
     'variables' : {
         VariablesLoader, 
+        updateVariableDevStatus, 
+        updateVariableProdStatus, 
     }  
 }
 
