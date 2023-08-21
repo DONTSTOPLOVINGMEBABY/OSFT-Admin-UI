@@ -12,5 +12,8 @@ export default {
     }, 
     'buttons' : {
         'background' : '#4C4992'
+    }, 
+    'borders' : {
+        'main_separator' : '#dababa'
     }
 }

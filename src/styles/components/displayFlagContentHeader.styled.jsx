@@ -4,7 +4,7 @@ const DisplayFlagContentHeaderStyled = styled.header`
     width: 100%;
     height: 75px;
     padding: 16px 32px;
-    border-bottom: 1px solid #dababa;
+    border-bottom: 1px solid ${ props => props.theme.borders.main_separator };
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -9,7 +9,7 @@ import {
     updateVariableProdStatus, 
 } from '../loaders/postUpdateVariableStatus'
 import VariablesLoader from "./fetchVariables"
-
+import FetchApiKeys from "./fetchApiKeys"
 const loaders = {
     'projects' : ProjectLoader,
     'features' : {
@@ -21,6 +21,9 @@ const loaders = {
         VariablesLoader, 
         updateVariableDevStatus, 
         updateVariableProdStatus, 
+    }, 
+    'api-keys' : {
+        FetchApiKeys, 
     }  
 }
 
