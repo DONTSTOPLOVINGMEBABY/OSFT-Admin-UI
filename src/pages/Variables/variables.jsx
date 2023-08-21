@@ -4,6 +4,7 @@ import {
 } from "../../styles/pages/variables.styled"
 import DisplayFlagContentHeader from "../../components/displayFlagContentHeader/displayFlagContentHeader"
 import VariableTableTitles from "./variableTableTitles"
+import IndividualVariable from "./individualVariable"
 import { useEffect, useState } from "react"
 import { useQuery } from "react-query"
 import { useAuth } from "../../context/authContext"
@@ -12,7 +13,7 @@ import loaders from "../../loaders"
 
 function Variables () {
 
-    const [displayVariables, setDisplayVariables] = useState()
+    const [displayVariables, setDisplayVariables] = useState([])
     const { user } = useAuth()
     
     const { isLoading, isError, data, error } = useQuery({
@@ -24,7 +25,7 @@ function Variables () {
         if (data) {
             setDisplayVariables(data.names)
         }
-    }, [displayVariables])
+    }, [data])
 
     if (isLoading){
         return <Spinner/>
@@ -38,6 +39,8 @@ function Variables () {
         
     }
  
+    console.log(data)
+
     return (
         <VariablePageStyled>
             <DisplayFlagContentHeader
@@ -50,6 +53,20 @@ function Variables () {
             />
             <VariableInfoBody>
                 <VariableTableTitles/>
+                { displayVariables.map( (variable, key) => {
+                    let grabVariable = data[variable]
+                    console.log(grabVariable)
+                    return (
+                        <IndividualVariable
+                        name={grabVariable.name}
+                        parentFeatureName={grabVariable.parentFeatureName}
+                        updatedAt={grabVariable.createdAt}
+                        productionEnabled={grabVariable.productionEnabled}
+                        developmentEnabled={grabVariable.developmentEnabled}
+                        key={key}
+                        />
+                    )
+                })}
             </VariableInfoBody>
         </VariablePageStyled>
     )

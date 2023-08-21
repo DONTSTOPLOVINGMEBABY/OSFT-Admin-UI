@@ -12,7 +12,7 @@ function VariableTableTitles () {
                 <LeftBoxEntry text='Parent Feature'/>
             </LeftBox>
             <RightBox>
-                <RightBoxEntry text='Created'/>
+                <RightBoxEntry text='Updated'/>
                 <RightBoxEntry text='Development Enabled'/>
                 <RightBoxEntry text='Production Enabled'/>
             </RightBox>

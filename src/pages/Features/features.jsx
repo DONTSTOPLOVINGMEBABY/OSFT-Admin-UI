@@ -40,6 +40,7 @@ function Features () {
     const newFeature = () => {
         
     }
+    console.log(data)
 
     return (
         <FeaturePageStyled>

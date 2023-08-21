@@ -11,7 +11,11 @@ const VariableInfoBody = styled(FlagContentBodyStyled)`
 `
 
 const VariableTableStyled = styled(FeatureDescriptionTitlesStyled)`
-    color: ${ props => props.theme.font.color }
+    color: ${ props => props.theme.font.color } ;
+`
+
+const VariableEntryStyled = styled(VariableTableStyled)`
+    background-color: ${ props => props.theme.background.content };
 `
 
 const LeftBox = styled.div`
@@ -56,4 +60,5 @@ export {
     RightBox, 
     LeftBoxEntryStyled, 
     RightBoxEntryStyled, 
+    VariableEntryStyled
 }
