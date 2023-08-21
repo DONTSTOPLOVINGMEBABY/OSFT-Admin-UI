@@ -4,6 +4,7 @@ import {
     updateDevelopmentStatus, 
     updateProductionStatus 
 } from "./postUpdateFeatureStatus"
+import VariablesLoader from "./fetchVariables"
 
 const loaders = {
     'projects' : ProjectLoader,
@@ -11,6 +12,9 @@ const loaders = {
         FeaturesLoader,
         updateDevelopmentStatus, 
         updateProductionStatus
+    }, 
+    'variables' : {
+        VariablesLoader, 
     }  
 }
 
