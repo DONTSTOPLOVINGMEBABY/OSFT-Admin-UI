@@ -4,7 +4,7 @@ import {
 } from "../../styles/pages/features.styled"
 import DisplayFlagContentHeader from "../../components/displayFlagContentHeader/displayFlagContentHeader"
 import { FeatureInfoBody } from "../../styles/pages/features.styled"
-import { useState, useEffect, useDeferredValue } from "react"
+import { useState, useEffect } from "react"
 import { useQuery } from "react-query"
 import { useAuth } from "../../context/authContext"
 import loaders from "../../loaders"
@@ -36,8 +36,6 @@ function Features () {
     if (isError) {
         return <div>Le error</div>
     }
-    
-    console.log(data)
 
     const newFeature = () => {
         
