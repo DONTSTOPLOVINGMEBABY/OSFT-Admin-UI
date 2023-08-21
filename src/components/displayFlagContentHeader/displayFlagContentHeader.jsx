@@ -15,7 +15,7 @@ function DisplayFlagContentHeader ({
         <DisplayFlagContentHeaderStyled>
             <NumContent item_name={item_name} num_items={num_items}/>
             <SearchBar set_function={set_function} initialSearchSpace={initialSearchSpace} />
-            <NewButton onClick={buttonModal}> {buttonMessage} </NewButton>
+            { buttonModal === false ? null : <NewButton onClick={buttonModal}> {buttonMessage} </NewButton> } 
         </DisplayFlagContentHeaderStyled>
     )
 }
