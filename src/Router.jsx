@@ -11,7 +11,7 @@ import PublicRoutes from "./components/router/publicRoutes"
 import AuthProvider from "./context/authContext"
 import Features from "./pages/Features/features"
 import Variables from "./pages/Variables/variables"
-
+import ApiKeys from "./pages/Api-Keys/apiKeys"
 
 function Router () {
     
@@ -30,6 +30,7 @@ function Router () {
                         <Route path="projects" element={<ProjectPage/>}/>
                         <Route path="features" element={<Features/>}/>
                         <Route path="variables" element={<Variables/>}/>
+                        <Route path="api-keys" element={<ApiKeys/>}/>
                     </Route>
                 </Routes>
                 <Footer />
