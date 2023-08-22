@@ -53,7 +53,6 @@ const KeyType = styled.div`
     display: flex;
     justify-content: center;
     font-size: larger;
-    font-weight: 600;
     margin-right: 10px;
     width: 120px;
 `

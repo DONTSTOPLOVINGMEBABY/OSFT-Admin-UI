@@ -9,6 +9,7 @@ export default {
         'family' : 'Roboto', 
         'color' : '#EEEEFC',
         'info_accented_color' : '#635DC5', 
+        'homepage_project_color' : '#9792ED'
     }, 
     'buttons' : {
         'background' : '#4C4992'

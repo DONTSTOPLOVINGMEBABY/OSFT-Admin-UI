@@ -14,7 +14,9 @@ function ProjectOverview ({ project_data }) {
 
     const loadProject = () => {
         let project_name = project_data.name
-        navigate(`/home/${project_name}`)
+        navigate(`/home`, {
+            state: project_name
+        })
     }
 
     return (
