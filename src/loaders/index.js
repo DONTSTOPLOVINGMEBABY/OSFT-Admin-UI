@@ -10,6 +10,8 @@ import {
 } from '../loaders/postUpdateVariableStatus'
 import VariablesLoader from "./fetchVariables"
 import FetchApiKeys from "./fetchApiKeys"
+import FetchHomePage from "./fetchHomePage" 
+
 const loaders = {
     'projects' : ProjectLoader,
     'features' : {
@@ -24,7 +26,10 @@ const loaders = {
     }, 
     'api-keys' : {
         FetchApiKeys, 
-    }  
+    }, 
+    'home-page' : {
+        FetchHomePage
+    }
 }
 
 export default loaders
