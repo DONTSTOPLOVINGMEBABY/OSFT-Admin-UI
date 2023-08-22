@@ -15,7 +15,7 @@ const SingleProjectEntryStyled = styled.div`
     align-items: center;
     border: 1px solid ${ props => props.theme.borders.main_separator };
     width: 100%;
-    height: 100px;
+    height: 200px;
 `
 
 const Box = styled.div`
@@ -31,6 +31,7 @@ const ProjectName = styled(Box)`
     font-weight: 600;
     font-size: 1.25rem;
     width: 30%;
+    border-right: 1px solid ${ props => props.theme.borders.main_separator }; 
 `
 
 const Keys = styled(Box)`
@@ -38,8 +39,34 @@ const Keys = styled(Box)`
     width: 70%;
 `
 
-SingleKey = styled.div`
+const SingleKey = styled.div`
     display: flex;
+    align-items: center;
+    justify-content: center;
+    color: ${ props => props.theme.font.color };
+    margin: 8px ;
+    width: 100%;
+    
+`
+
+const KeyType = styled.div`
+    display: flex;
+    justify-content: center;
+    font-size: larger;
+    font-weight: 600;
+    margin-right: 10px;
+    width: 120px;
+`
+
+const ApiKey = styled.div`
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 40%;
+    background-color: #575757;
+    overflow: auto;
+    padding: 4px;
+    margin-right: 8px;
 `
 
 
@@ -50,4 +77,6 @@ export {
     ProjectName, 
     Keys, 
     SingleKey, 
+    KeyType,
+    ApiKey, 
 }

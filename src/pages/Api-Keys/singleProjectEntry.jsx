@@ -2,8 +2,11 @@ import {
     SingleProjectEntryStyled,  
     ProjectName, 
     Keys, 
-    SingleKey
+    SingleKey, 
+    KeyType, 
+    ApiKey, 
 } from "../../styles/pages/apiKeys.styled";
+import CopyToClipboard from "../../components/copyToClipBoard";
 
 function SingleProjectEntry ({
     name, 
@@ -18,10 +21,14 @@ function SingleProjectEntry ({
             </ProjectName>
             <Keys>
                 <SingleKey>
-                    
+                    <KeyType>Production</KeyType>
+                    <ApiKey>{productionApiKey}</ApiKey>
+                    <CopyToClipboard item_to_copy={productionApiKey}/>
                 </SingleKey>
                 <SingleKey>
-                    
+                    <KeyType>Development</KeyType>
+                    <ApiKey>{developmentApiKey}</ApiKey>
+                    <CopyToClipboard item_to_copy={developmentApiKey}/>
                 </SingleKey>
             </Keys>
         </SingleProjectEntryStyled>
