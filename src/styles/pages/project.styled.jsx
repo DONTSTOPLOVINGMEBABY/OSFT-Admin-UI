@@ -14,6 +14,7 @@ const DisplayProjects = styled.div`
 
 
 const ProjectOverviewStyled = styled.div`
+    position: relative;
     display: flex;
     flex-direction: column ;
     justify-content : space-between;

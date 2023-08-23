@@ -10,6 +10,7 @@ import ProjectOverview from "./project-overview"
 import Spinner from "../../components/spinners/spinner"
 import DisplayFlagContentHeader from "../../components/displayFlagContentHeader/displayFlagContentHeader"
 import NewProject from "../../forms/newProject/newProject"
+import DeleteXItem from "../../components/deleteXItem"
 
 function ProjectPage () {
 

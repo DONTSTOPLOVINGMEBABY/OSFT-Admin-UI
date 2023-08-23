@@ -32,7 +32,6 @@ function EnableXEnvironment ({
             setEnabled(newStatus)
             setIconLoading(false)
             invalid_queries.forEach( (string) => {
-                console.log(string)
                 queryClient.refetchQueries(string)
             })
         }, 

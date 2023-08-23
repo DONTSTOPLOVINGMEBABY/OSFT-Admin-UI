@@ -10,6 +10,7 @@ import {
 } from "../../styles/pages/home.styled"
 import EnableXEnvironment from "../../components/enableXEnvironment"
 import IndividualVariable from "./individualVariable"
+import Spinner from "../../components/spinners/spinner"
 import loaders from "../../loaders"
 
 function IndividualFeature ({
