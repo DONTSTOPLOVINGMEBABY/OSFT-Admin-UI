@@ -13,6 +13,7 @@ import FetchApiKeys from "./fetchApiKeys"
 import FetchHomePage from "./fetchHomePage" 
 import PostNewProject from "./postNewProject"
 import DeleteProject from "./postDeleteProject"
+import PostNewFeature from "./postNewFeature"
 
 const loaders = {
     'projects' : { 
@@ -23,7 +24,8 @@ const loaders = {
     'features' : {
         FeaturesLoader,
         updateDevelopmentStatus, 
-        updateProductionStatus, 
+        updateProductionStatus,
+        PostNewFeature, 
     }, 
     'variables' : {
         VariablesLoader, 
