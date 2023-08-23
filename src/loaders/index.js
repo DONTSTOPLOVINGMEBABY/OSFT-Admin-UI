@@ -12,11 +12,13 @@ import VariablesLoader from "./fetchVariables"
 import FetchApiKeys from "./fetchApiKeys"
 import FetchHomePage from "./fetchHomePage" 
 import PostNewProject from "./postNewProject"
+import DeleteProject from "./postDeleteProject"
 
 const loaders = {
     'projects' : { 
         ProjectLoader, 
         PostNewProject,
+        DeleteProject, 
     },
     'features' : {
         FeaturesLoader,

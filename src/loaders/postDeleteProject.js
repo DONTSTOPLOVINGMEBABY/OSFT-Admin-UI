@@ -1,7 +1,7 @@
-export default async function PostNewProject ({ user, projectName }) {
+export default async function DeleteProject ({ user, projectName }) {
     let { accessToken } = user
-    let request = await fetch('http://localhost:3000/projects/make-new-project', {
-        method : 'POST', 
+    let request = await fetch('http://localhost:3000/projects/delete-project', {
+        method : 'DELETE', 
         credentials : 'include',
         headers: {
             'Authorization' : `Bearer ${accessToken}`, 
