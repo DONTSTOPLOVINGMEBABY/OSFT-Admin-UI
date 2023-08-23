@@ -1,12 +1,12 @@
 import styled from "styled-components"
-import { FormModal } from "../global/forms.styled"
+import { FormModal, ActualForm } from "../global/forms.styled"
 
 const NewProjectStyled = styled(FormModal)`
     height: 300px;
     width: 500px;
 `
 
-const NewProjectForm = styled.form`
+const NewProjectForm = styled(ActualForm)`
     display: flex;
     flex-direction: column;
     align-items: center;

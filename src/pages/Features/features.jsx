@@ -2,9 +2,10 @@ import {
     FeaturePageStyled, 
     AllFeatures, 
 } from "../../styles/pages/features.styled"
+import NewFeature from "../../forms/newFeature/newFeature"
 import DisplayFlagContentHeader from "../../components/displayFlagContentHeader/displayFlagContentHeader"
 import { FeatureInfoBody } from "../../styles/pages/features.styled"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useQuery } from "react-query"
 import { useAuth } from "../../context/authContext"
 import loaders from "../../loaders"
@@ -17,6 +18,7 @@ function Features () {
 
     const [displayFeatures, setDisplayFeatures] = useState([])
     const { user } = useAuth()
+    const newFeatureRef = useRef()
 
     const { isLoading, isError, data, error } = useQuery({
         queryKey : ['features'], 
@@ -29,6 +31,14 @@ function Features () {
         }
     }, [data])
 
+    // Delete!! 
+
+    useEffect( () => {
+        if (newFeatureRef.current){
+            newFeatureRef.current.showModal()
+        }
+    })
+
     if (isLoading){
         return <Spinner/>
     }
@@ -38,7 +48,7 @@ function Features () {
     }
 
     const newFeature = () => {
-        
+        newFeatureRef.current.showModal()
     }
     console.log(data)
 
@@ -71,6 +81,7 @@ function Features () {
                     })}                      
                 </AllFeatures>
             </FeatureInfoBody>
+            <NewFeature ref={newFeatureRef}/>
         </FeaturePageStyled>
     )
 }
