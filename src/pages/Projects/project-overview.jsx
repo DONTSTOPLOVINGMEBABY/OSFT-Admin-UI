@@ -6,6 +6,8 @@ import {
     ProjectMetric
 } from "../../styles/pages/project.styled";
 import { useNavigate } from "react-router-dom";
+import DeleteXItem from "../../components/deleteXItem"
+import loaders from '../../loaders'
 
 
 function ProjectOverview ({ project_data }) {
@@ -19,8 +21,20 @@ function ProjectOverview ({ project_data }) {
         })
     }
 
-    return (
+    return ( project_data ? 
         <ProjectOverviewStyled onClick={loadProject}>
+            <DeleteXItem
+            loader_function={loaders.projects.DeleteProject}
+            invalidate_queries={[
+                "features", 
+                "homepage", 
+                "variables", 
+                "projects"
+            ]}
+            request_body={{
+                projectName : project_data.name
+            }}
+            />
             <OverviewTitle>{project_data.name}</OverviewTitle>
             <ProjectDetails>                
                 <MetricBox>
@@ -44,7 +58,7 @@ function ProjectOverview ({ project_data }) {
                     <span>enabled</span>
                 </MetricBox>                
             </ProjectDetails>
-        </ProjectOverviewStyled>
+        </ProjectOverviewStyled> : null
     )
 }
 
