@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useAuth } from "../../context/authContext"
 import DisplayFlagContentBody from "../../components/flagContentBody"
 import { useQuery } from "react-query"
@@ -9,16 +9,17 @@ import loaders from "../../loaders"
 import ProjectOverview from "./project-overview"
 import Spinner from "../../components/spinners/spinner"
 import DisplayFlagContentHeader from "../../components/displayFlagContentHeader/displayFlagContentHeader"
-
+import NewProject from "../../forms/newProject/newProject"
 
 function ProjectPage () {
 
     const [displayProjects, setDisplayProjects] = useState([])
     const { user } = useAuth()
+    const newProjectRef = useRef()
 
     const { isLoading, isError, data, error } = useQuery({
         queryKey : ['projects'], 
-        queryFn: () => loaders.projects(user)
+        queryFn: () => loaders.projects.ProjectLoader(user)
     })
 
     useEffect( () => {
@@ -35,7 +36,9 @@ function ProjectPage () {
         return <div>Le error</div>
     }
 
-    const newProject = () => {}
+    const newProject = () => {
+        newProjectRef.current.showModal()
+    }
 
 
     return ( 
@@ -58,6 +61,7 @@ function ProjectPage () {
                     ) 
                 })}
             </DisplayFlagContentBody>
+            <NewProject ref={newProjectRef}/>
         </ProjectPageStyled> 
     ) 
 }
