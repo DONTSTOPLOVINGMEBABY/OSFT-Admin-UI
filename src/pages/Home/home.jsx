@@ -3,13 +3,14 @@ import { useAuth } from "../../context/authContext"
 import { useQuery } from "react-query"
 import { 
     HomePageStyled, 
-    ProjectName, 
     WhiteSpan, 
+    MainTitle, 
 } from "../../styles/pages/home.styled"
 import Spinner from "../../components/spinners/spinner"
 import loaders from "../../loaders"
 import { useLocation } from "react-router-dom"
 import IndividualFeature from "./individualFeature"
+
 
 
 function HomePage () {
@@ -43,7 +44,7 @@ function HomePage () {
 
     return ( 
         <HomePageStyled>
-            <ProjectName><WhiteSpan>Project / </WhiteSpan>{data.projectName}</ProjectName>
+            <MainTitle><WhiteSpan>Project / </WhiteSpan>{data.projectName}</MainTitle>
             { displayFeatures.map((featureName, id) => {
                 let feature = data["features"][featureName] 
                 return <IndividualFeature

@@ -40,7 +40,7 @@ function ApiKeys () {
     return (
         <ApiKeyPageStyled>
             <DisplayFlagContentHeader
-            item_name='Projects'
+            item_name='Your API Keys'
             num_items={data.numProjects}
             set_function={setDisplayProjects}
             initialSearchSpace={data.names}

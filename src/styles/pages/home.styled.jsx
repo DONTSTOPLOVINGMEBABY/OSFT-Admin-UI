@@ -5,12 +5,20 @@ const HomePageStyled = styled(assembleMainContent)`
     color: ${ props => props.theme.font.color } ;
     background-color: ${ props => props.theme.background.main } ;
     align-items: flex-start;
+    justify-content: center;
 `
 
 const ProjectName = styled.div`
     color: ${ props => props.theme.font.homepage_project_color };
     font-weight: 700;
     display: flex; 
+    justify-content: center;
+    align-items: center; 
+    width: 33%;
+`
+
+const MainTitle = styled(ProjectName)`
+    justify-content: left;
 `
 
 const WhiteSpan = styled.div`
@@ -30,12 +38,30 @@ const IndividualFeatureStyled = styled.div`
     border-radius: 5px;
 `
 
-const FeatureHeaderInfo = styled.div`
+const InfoChunk = styled.div`
     display: flex;
     width: 100%;
     height: fit-content;
     justify-content: space-around;
+    align-items: center;
 `
+
+const FeatureHeader = styled(InfoChunk)`
+    border-bottom: 2px solid ${ props => props.theme.borders.main_separator }; 
+    padding-bottom: 4px;
+`
+
+const IndividualVariableStyled = styled(InfoChunk)`
+    margin: 12px 0px;
+`
+
+const EnabledDisabledSection = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+`
+
 
 const EnabledDisableFeatureText = styled.span`
     margin-right: 8px;
@@ -49,15 +75,27 @@ const EnabledDisableFeature = styled.div`
     align-items: center;
 `
 
+const AllFeatureVariables = styled.div`
+    display: flex;
+    width : 100% ; 
+    height: fit-content;
+    flex-direction: column;
+`
+
 
 
 
 export { 
+    MainTitle, 
     HomePageStyled, 
     ProjectName, 
     WhiteSpan,
     IndividualFeatureStyled,
-    FeatureHeaderInfo,  
+    InfoChunk,  
     EnabledDisableFeature, 
-    EnabledDisableFeatureText
+    EnabledDisableFeatureText, 
+    EnabledDisabledSection, 
+    AllFeatureVariables, 
+    FeatureHeader, 
+    IndividualVariableStyled
 }
