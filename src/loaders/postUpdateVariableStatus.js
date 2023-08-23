@@ -37,7 +37,7 @@ export async function updateVariableProdStatus ({user, variableName, parentFeatu
 /*
 http://localhost:3000/features/change-development-status
 
-http://localhost:3000/features/change-production-status
+http://localhost:3000/features/change-production-status 
 
 https://feature-flagging-server-envproduction.up.railway.app/app/features
 

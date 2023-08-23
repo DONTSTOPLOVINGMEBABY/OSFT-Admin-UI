@@ -11,13 +11,17 @@ import {
 import VariablesLoader from "./fetchVariables"
 import FetchApiKeys from "./fetchApiKeys"
 import FetchHomePage from "./fetchHomePage" 
+import PostNewProject from "./postNewProject"
 
 const loaders = {
-    'projects' : ProjectLoader,
+    'projects' : { 
+        ProjectLoader, 
+        PostNewProject,
+    },
     'features' : {
         FeaturesLoader,
         updateDevelopmentStatus, 
-        updateProductionStatus
+        updateProductionStatus, 
     }, 
     'variables' : {
         VariablesLoader, 
