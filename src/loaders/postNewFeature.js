@@ -25,7 +25,6 @@ export default async function PostNewFeature ({
 
     if (!request.ok){
         let error = await request.json()
-        // console.log(error)
         throw new Error(error.errors)
     }
 

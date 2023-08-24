@@ -1,6 +1,6 @@
-export default async function DeleteProject ({ user, projectName }) {
+export default async function DeleteFeature ({ user, featureName, projectName }) {
     let { accessToken } = user
-    let request = await fetch('http://localhost:3000/projects/delete-project', {
+    let request = await fetch('http://localhost:3000/features/delete-feature', {
         method : 'DELETE', 
         credentials : 'include',
         headers: {
@@ -8,6 +8,7 @@ export default async function DeleteProject ({ user, projectName }) {
             'Content-Type' : 'application/json', 
         }, 
         body : JSON.stringify({
+            featureName, 
             projectName
         })
     })

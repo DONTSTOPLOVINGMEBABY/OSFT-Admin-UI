@@ -14,6 +14,7 @@ import FetchHomePage from "./fetchHomePage"
 import PostNewProject from "./postNewProject"
 import DeleteProject from "./postDeleteProject"
 import PostNewFeature from "./postNewFeature"
+import DeleteFeature from "./postDeleteFeature"
 
 const loaders = {
     'projects' : { 
@@ -25,7 +26,8 @@ const loaders = {
         FeaturesLoader,
         updateDevelopmentStatus, 
         updateProductionStatus,
-        PostNewFeature, 
+        PostNewFeature,
+        DeleteFeature,  
     }, 
     'variables' : {
         VariablesLoader, 
