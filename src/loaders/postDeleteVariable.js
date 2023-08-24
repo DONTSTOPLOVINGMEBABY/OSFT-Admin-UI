@@ -2,7 +2,7 @@ export default async function DeleteVariable (
     {   user, 
         name, 
         parentFeature, 
-        parentProject,  
+        projectName,  
     }
 ) {
     let { accessToken } = user
@@ -16,7 +16,7 @@ export default async function DeleteVariable (
         body : JSON.stringify({
             name, 
             parentFeature, 
-            parentProject, 
+            projectName, 
         })
     })
 

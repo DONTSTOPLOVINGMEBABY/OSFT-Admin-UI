@@ -10,6 +10,7 @@ import { useAuth } from "../../context/authContext"
 import { useState } from "react"
 import { useQueryClient, useMutation } from "react-query"
 import AdjustableSpinner from "../../components/spinners/adjustableSizeSpinner"
+import DeleteXItem from "../../components/deleteXItem"
 import loaders from "../../loaders"
 
 function IndividualVariable ({
@@ -117,6 +118,22 @@ function IndividualVariable ({
                     }  
                 </RightIconBoxEntry>
             </RightBox>
+            <DeleteXItem 
+            loader_function={loaders.variables.DeleteVariable}
+            invalidate_queries={[
+                "features", 
+                "homepage", 
+                "variables", 
+                "projects", 
+            ]}
+            request_body={{
+                name, 
+                parentFeature : parentFeatureName, 
+                projectName : parentProjectName, 
+            }}
+            top={'16px'}
+            left={'80px'}
+            />
         </VariableEntryStyled>
     )
 }

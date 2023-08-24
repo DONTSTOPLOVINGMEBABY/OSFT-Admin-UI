@@ -58,7 +58,7 @@ function Variables () {
                 { displayVariables.map( (variable, key) => {
                     let grabVariable = data[variable]
                     return (
-                        <IndividualVariable
+                        grabVariable ? <IndividualVariable
                         name={grabVariable.name}
                         parentFeatureName={grabVariable.parentFeatureName}
                         parentProjectName={grabVariable.parentProjectName}
@@ -66,7 +66,7 @@ function Variables () {
                         productionEnabled={grabVariable.productionEnabled}
                         developmentEnabled={grabVariable.developmentEnabled}
                         key={key}
-                        />
+                        /> : null
                     )
                 })}
             </VariableInfoBody>
