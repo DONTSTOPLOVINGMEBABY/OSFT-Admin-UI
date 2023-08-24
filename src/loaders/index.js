@@ -15,6 +15,9 @@ import PostNewProject from "./postNewProject"
 import DeleteProject from "./postDeleteProject"
 import PostNewFeature from "./postNewFeature"
 import DeleteFeature from "./postDeleteFeature"
+import DeleteVariable from "./postDeleteVariable"
+import FetchFeaturesByProjectName from "./fetchFeaturesByProjectName"
+import PostMakeNewVariable from "./postMakeNewVariable"
 
 const loaders = {
     'projects' : { 
@@ -27,12 +30,15 @@ const loaders = {
         updateDevelopmentStatus, 
         updateProductionStatus,
         PostNewFeature,
-        DeleteFeature,  
+        DeleteFeature, 
+        FetchFeaturesByProjectName,  
     }, 
     'variables' : {
         VariablesLoader, 
         updateVariableDevStatus, 
-        updateVariableProdStatus, 
+        updateVariableProdStatus,
+        DeleteVariable, 
+        PostMakeNewVariable, 
     }, 
     'api-keys' : {
         FetchApiKeys, 
