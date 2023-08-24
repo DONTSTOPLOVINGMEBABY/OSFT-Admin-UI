@@ -31,7 +31,8 @@ function ProjectDropDown ({
             styles={{
                 container : (baseStyles, state) => ({
                     ...baseStyles, 
-                    width : '100%'
+                    width : '100%',
+                    margin : '12px', 
                 })
             }}
             onChange={(selectedOption) => setProjectDropDownValue(selectedOption.value)}

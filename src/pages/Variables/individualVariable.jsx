@@ -38,7 +38,9 @@ function IndividualVariable ({
             let { developmentEnabled } = data
             setDevelopment(developmentEnabled)
             setDevelopmentLoading(false)
-            queryClient.invalidateQueries('variables')
+            queryClient.refetchQueries('variables')
+            queryClient.refetchQueries('projects')
+            queryClient.refetchQueries('features')
         }, 
         onError : (error) => {
             console.log(error)
@@ -54,7 +56,9 @@ function IndividualVariable ({
             let { productionEnabled } = data
             setProduction(productionEnabled)
             setProductionLoading(false)
-            queryClient.invalidateQueries('variables')
+            queryClient.refetchQueries('variables')
+            queryClient.refetchQueries('projects')
+            queryClient.refetchQueries('features')
         }, 
         onError : (error) => {
             console.log(error)

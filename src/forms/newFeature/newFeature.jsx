@@ -46,7 +46,7 @@ const NewFeature = forwardRef(function NewFeature(props, ref){
             queryClient.refetchQueries('homepage')
         }, 
         onError : (error) => {
-        setLoading(false)
+            setLoading(false)
             setShowError(true)
             setErrorMessage(GetErrorMessagesFromString(error.message))
         }
@@ -113,7 +113,7 @@ const NewFeature = forwardRef(function NewFeature(props, ref){
                     />
                 </LoadingButton> : 
                 <FormButton>Create Feature</FormButton>   
-            }
+                }
             </NewFeatureForm>
         </NewFeatureStyled>
     )

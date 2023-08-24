@@ -16,6 +16,7 @@ const VariableTableStyled = styled(FeatureDescriptionTitlesStyled)`
 
 const VariableEntryStyled = styled(VariableTableStyled)`
     background-color: ${ props => props.theme.background.content };
+    position: relative ; 
 `
 
 const LeftBox = styled.div`
