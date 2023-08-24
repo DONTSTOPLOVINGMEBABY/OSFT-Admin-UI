@@ -14,6 +14,8 @@ function DeleteXItem ({
     loader_function, 
     invalidate_queries, 
     request_body, 
+    top, 
+    left, 
 }) {
     
     const { user } = useAuth()
@@ -32,6 +34,7 @@ function DeleteXItem ({
             console.log('sucess')
         }, 
         onError : (error) => {
+            console.error(error)
             alert('Operation Failed')
         }
     })
@@ -50,7 +53,7 @@ function DeleteXItem ({
     }
 
     return (
-        <DeleteXItemStyled onClick={showWarning}>
+        <DeleteXItemStyled $top={top} $left={left} onClick={showWarning}>
             <TrashCan
             src={trash_can_svg}
             $height={height}

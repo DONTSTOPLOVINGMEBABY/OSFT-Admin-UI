@@ -4,8 +4,8 @@ const DeleteXItemStyled = styled.div`
     height: fit-content;  
     width: fit-content;
     position: absolute;
-    top: 4px;
-    right: 4px;
+    top: ${ props => props.$top ? props.$top : '4px' } ;
+    right: ${ props => props.$right ? props.$right : '4px' } ;
     cursor: pointer;
 
     &:hover {
