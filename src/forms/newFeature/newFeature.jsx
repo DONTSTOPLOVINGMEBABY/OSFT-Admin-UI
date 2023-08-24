@@ -13,35 +13,22 @@ import CloseForm from "../closeForm";
 import { useAuth } from "../../context/authContext";
 import { useQueryClient, useMutation, useQuery } from "react-query";
 import loaders from "../../loaders";
-import Select from "react-select"
+import GetErrorMessagesFromString from "../../utils/getErrorMessages";
+import ProjectDropDown from "../projectDropDown";
+import ErrorMessage from "../../components/errorMessage";
 
 const NewFeature = forwardRef(function NewFeature(props, ref){
     
     const { user } = useAuth()
     const [showError, setShowError] = useState(false)
-    const [errorMessage, setErrorMessage] = useState(null)
-    const [allProjects, setAllProjects] = useState([])
+    const [errorMessage, setErrorMessage] = useState([])
+    const [selectedProject, setSelectedProject] = useState(null)
     const queryClient = useQueryClient()
     const featureNameRef = useRef()
     const initialVariableRef = useRef()
     const descriptionRef = useRef()
-    const [ projectDropDownValue, setProjectDropDownValue ] = useState(null)
     const [loading, setLoading] = useState(false)
 
-    const { data, isLoading, error } = useQuery(['projects'], loaders.projects.ProjectLoader)
-
-    useEffect(() => {
-        if (data){
-            let options = []
-            data.names.forEach( name => {
-                options.push({
-                    value: name, 
-                    label : name, 
-                })
-            })
-            setAllProjects(options)
-        }
-    }, [data])
 
     const createFeatureMutation = useMutation({
         mutationFn : (args) => {
@@ -59,21 +46,23 @@ const NewFeature = forwardRef(function NewFeature(props, ref){
             queryClient.refetchQueries('homepage')
         }, 
         onError : (error) => {
-            console.log(error)
+        setLoading(false)
+            setShowError(true)
+            setErrorMessage(GetErrorMessagesFromString(error.message))
         }
     })
-
-    if (isLoading) {
-        return
-    }
 
     const createFeature = (e) => {
         e.preventDefault()
         setLoading(true)
-        console.log(featureNameRef.current.value, 
-        initialVariableRef.current.value, 
-        descriptionRef.current.value)
-        console.log(projectDropDownValue)
+        createFeatureMutation.mutate({
+            user,
+            featureName : featureNameRef.current.value, 
+            description : descriptionRef.current.value, 
+            initialVariableKey : initialVariableRef.current.value, 
+            featureVariableName : initialVariableRef.current.value,
+            projectName : selectedProject, 
+        })
     }
 
 
@@ -82,30 +71,37 @@ const NewFeature = forwardRef(function NewFeature(props, ref){
             <NewFeatureForm onSubmit={createFeature}>
                 <CloseForm modal={ref}/>
                 <FormTitle>New Feature</FormTitle>
-                <Select 
-                options={allProjects}
-                placeholder={"Pick a Project"}
-                styles={{
-                    container : (baseStyles, state) => ({
-                        ...baseStyles, 
-                        width : '100%'
-                    })
-                }}
-                onChange={(selectedOption) => setProjectDropDownValue(selectedOption)}
+                { showError ? 
+                    errorMessage.map( (message, index) => {
+                        return (  
+                            <ErrorMessage
+                            message={message}
+                            height='40px'
+                            font_size='1.5rem'
+                            key={index}
+                        />
+                        )
+                    }) : null
+                }
+                <ProjectDropDown
+                setProjectDropDownValue={setSelectedProject}
                 />
                 <FeatureInputBox 
                 type="text"
                 placeholder="Feature Name"
                 ref={featureNameRef}
+                onChange={ () => setShowError(false) }
                 />
                 <FeatureInputBox 
                 type="text"
                 placeholder="Initial Variable Name"
                 ref={initialVariableRef}
+                onChange={ () => setShowError(false) }
                 />
                 <DescriptionBox
-                defaultValue="Your Default Variable's name"
+                defaultValue="A description of your feature"
                 ref={descriptionRef}
+                onChange={ () => setShowError(false) }
                 />
                 { loading ? 
                 <LoadingButton>

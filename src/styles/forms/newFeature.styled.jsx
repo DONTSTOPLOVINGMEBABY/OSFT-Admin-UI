@@ -3,7 +3,7 @@ import { FormModal, ActualForm, SubmitButton, LoadingSubmit } from "../global/fo
 
 const NewFeatureStyled = styled(FormModal)`
     width: 500px;
-    height: 500px;
+    min-height: 500px;
 `
 
 const NewFeatureForm = styled(ActualForm)`
@@ -25,12 +25,14 @@ const FeatureInputBox = styled.input`
     height: 50px;
     outline: none;
     font-size: 1.25rem;
+    margin: 8px;
 `
 
 const DescriptionBox = styled.textarea`
     width: 100%;
     height: 100px;
     resize: none;
+    margin: 8px;
 `
 
 const FormButton = styled(SubmitButton)`

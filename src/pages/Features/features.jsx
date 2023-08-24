@@ -31,14 +31,6 @@ function Features () {
         }
     }, [data])
 
-    // Delete!! 
-
-    useEffect( () => {
-        if (newFeatureRef.current){
-            newFeatureRef.current.showModal()
-        }
-    })
-
     if (isLoading){
         return <Spinner/>
     }
@@ -50,7 +42,6 @@ function Features () {
     const newFeature = () => {
         newFeatureRef.current.showModal()
     }
-    console.log(data)
 
     return (
         <FeaturePageStyled>
@@ -68,7 +59,7 @@ function Features () {
                     { displayFeatures.map( ( featureName, index) => {
                         let grabFeature = data[featureName]
                         return (
-                            <SingleFeature
+                            grabFeature ? <SingleFeature
                                 name={grabFeature.name}
                                 variables={grabFeature.variables}
                                 parentProject={grabFeature.parentProjectName}
@@ -76,7 +67,7 @@ function Features () {
                                 productionEnabled={grabFeature.productionEnabled}
                                 developmentEnabled={grabFeature.developmentEnabled}
                                 key={index}
-                            />
+                            /> : null
                         )
                     })}                      
                 </AllFeatures>

@@ -10,6 +10,7 @@ const ErrorMessageStyled = styled.div`
     width: 100%;
     color: black;
     font-weight: 600;
+    margin: 8px;
 `
 
 export { ErrorMessageStyled }
