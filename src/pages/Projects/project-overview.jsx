@@ -29,7 +29,8 @@ function ProjectOverview ({ project_data }) {
                 "features", 
                 "homepage", 
                 "variables", 
-                "projects"
+                "projects", 
+                "api-keys", 
             ]}
             request_body={{
                 projectName : project_data.name

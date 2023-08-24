@@ -49,12 +49,14 @@ function ApiKeys () {
             <ApiKeyBody>
                 { displayProjects.map( (projectName, id) => {
                     let project = data[projectName]
-                    return <SingleProjectEntry
+                    return ( 
+                    project ? <SingleProjectEntry
                         name={project.name}
                         developmentApiKey={project.developmentApiKey}
                         productionApiKey={project.productionApiKey}
                         key={id}
-                    />
+                    /> : null
+                    )
                 })}
             </ApiKeyBody>
         </ApiKeyPageStyled>
