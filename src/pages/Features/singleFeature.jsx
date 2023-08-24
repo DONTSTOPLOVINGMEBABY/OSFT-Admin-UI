@@ -14,6 +14,7 @@ import { useMutation, useQueryClient } from "react-query"
 import { useAuth } from "../../context/authContext"
 import AdjustableSpinner from "../../components/spinners/adjustableSizeSpinner"
 import loaders from "../../loaders"
+import DeleteXItem from "../../components/deleteXItem"
 
 function SingleFeature ({
     name, 
@@ -39,7 +40,8 @@ function SingleFeature ({
             let { development_status } = data
             setDevelopment(development_status)
             setDevelopmentLoading(false)
-            queryClient.invalidateQueries('features')
+            queryClient.refetchQueries('features')
+            queryClient.refetchQueries('homepage')
         }
     })
 
@@ -51,7 +53,8 @@ function SingleFeature ({
             let { production_status } = data
             setProduction(production_status)
             setProductionLoading(false)
-            queryClient.invalidateQueries('features')
+            queryClient.refetchQueries('features')
+            queryClient.refetchQueries('homepage')
         }
     })
 
@@ -74,6 +77,21 @@ function SingleFeature ({
 
     return (
         <SingleFeatureBoxStyled>
+            <DeleteXItem
+            loader_function={loaders.features.DeleteFeature}
+            invalidate_queries={[
+                "features", 
+                "homepage",
+                "variables", 
+                "projects", 
+            ]}
+            request_body={{ 
+                projectName : parentProject, 
+                featureName : name, 
+            }}
+            top={'16px'}
+            left={'40px'}
+            />
             <Leftbox>
                 <First>{name}</First>
                 <Second>{variables}</Second>
