@@ -12,6 +12,7 @@ import AuthProvider from "./context/authContext"
 import Features from "./pages/Features/features"
 import Variables from "./pages/Variables/variables"
 import ApiKeys from "./pages/Api-Keys/apiKeys"
+import SignUp from "./pages/Signup/Signup"
 
 function Router () {
     
@@ -23,7 +24,7 @@ function Router () {
                     <Route index element={<Navigate to='home'/>} />
                     <Route element={<PublicRoutes/>}>
                         <Route path="login" element={<Login/>}/>
-                        {/* <Route path="/signup" element={<Signup/>}/> */}
+                        <Route path="signup" element={<SignUp/>}/>
                     </Route>
                     <Route element={<PrivateRoutes/>}>
                         <Route path="home" element={<HomePage/>}/>

@@ -5,6 +5,7 @@ import {
     useEffect, 
     useMemo, 
 } from "react"
+import { useMutation } from "react-query"
 
 import { useNavigate } from "react-router-dom"
 import Spinner from "../components/spinners/spinner"
@@ -59,6 +60,14 @@ function AuthProvider ({ children }) {
             setLoading(false)
         } catch (error) {
             console.error(error)
+        }
+    }
+
+    const signUpUser = async () => {
+        try {
+            
+        } catch (error) {
+
         }
     }
 
