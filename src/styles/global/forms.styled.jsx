@@ -43,6 +43,7 @@ const SubmitButton = styled.button`
     display: flex;
     align-items : center ;
     justify-content: center;
+    color: white;
 `
 
 const LoadingSubmit = styled(SubmitButton)`
