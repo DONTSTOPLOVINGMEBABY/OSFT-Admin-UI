@@ -49,11 +49,33 @@ const LoadingSubmit = styled(SubmitButton)`
     background-color: #333070 ; 
 `
 
+const Title = styled.h1`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0;
+`
+
+const InputBox = styled.input`
+    width: 100%;
+    height: 50px;
+    outline: none;
+    font-size: 1.25rem;
+    margin: 8px;
+`
+
+
 
 export {
     FormModal, 
     CloseFormStyled, 
     ActualForm,
     SubmitButton,
-    LoadingSubmit,  
+    LoadingSubmit,
+    Title,   
+    InputBox, 
 }

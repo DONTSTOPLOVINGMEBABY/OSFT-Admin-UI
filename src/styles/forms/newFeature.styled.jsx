@@ -1,5 +1,12 @@
 import styled from "styled-components"
-import { FormModal, ActualForm, SubmitButton, LoadingSubmit } from "../global/forms.styled"
+import { 
+    FormModal, 
+    ActualForm, 
+    SubmitButton, 
+    LoadingSubmit, 
+    Title, 
+    InputBox,  
+} from "../global/forms.styled"
 
 const NewFeatureStyled = styled(FormModal)`
     width: 500px;
@@ -9,23 +16,10 @@ const NewFeatureStyled = styled(FormModal)`
 const NewFeatureForm = styled(ActualForm)`
 `
 
-const FormTitle = styled.h1`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 80px;
-    font-size: 1.75rem;
-    font-weight: 600;
-    margin: 0;
+const FormTitle = styled(Title)`
 `
 
-const FeatureInputBox = styled.input`
-    width: 100%;
-    height: 50px;
-    outline: none;
-    font-size: 1.25rem;
-    margin: 8px;
+const FeatureInputBox = styled(InputBox)`
 `
 
 const DescriptionBox = styled.textarea`
