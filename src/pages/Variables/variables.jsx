@@ -5,7 +5,8 @@ import {
 import DisplayFlagContentHeader from "../../components/displayFlagContentHeader/displayFlagContentHeader"
 import VariableTableTitles from "./variableTableTitles"
 import IndividualVariable from "./individualVariable"
-import { useEffect, useState } from "react"
+import NewVariable from "../../forms/newVariable/newVariable"
+import { useEffect, useRef, useState } from "react"
 import { useQuery } from "react-query"
 import { useAuth } from "../../context/authContext"
 import Spinner from "../../components/spinners/spinner"
@@ -15,6 +16,7 @@ function Variables () {
 
     const [displayVariables, setDisplayVariables] = useState([])
     const { user } = useAuth()
+    const newVariableRef = useRef()
     
     const { isLoading, isError, data, error } = useQuery({
         queryKey: ['variables'], 
@@ -36,12 +38,13 @@ function Variables () {
     }
 
     const newVariable = () => {
-        
+        newVariableRef.current.showModal()
     }
 
 
     return (
         <VariablePageStyled>
+            <NewVariable ref={newVariableRef}/>
             <DisplayFlagContentHeader
             item_name='Variables'
             num_items={data.numVariables}
