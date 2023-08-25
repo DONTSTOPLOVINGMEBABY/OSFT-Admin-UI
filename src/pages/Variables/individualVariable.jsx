@@ -42,6 +42,7 @@ function IndividualVariable ({
             queryClient.refetchQueries('variables')
             queryClient.refetchQueries('projects')
             queryClient.refetchQueries('features')
+            queryClient.refetchQueries('homepage')
         }, 
         onError : (error) => {
             console.log(error)
@@ -60,6 +61,7 @@ function IndividualVariable ({
             queryClient.refetchQueries('variables')
             queryClient.refetchQueries('projects')
             queryClient.refetchQueries('features')
+            queryClient.refetchQueries('homepage')
         }, 
         onError : (error) => {
             console.log(error)
