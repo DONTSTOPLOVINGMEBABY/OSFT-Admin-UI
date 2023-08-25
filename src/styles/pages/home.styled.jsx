@@ -82,6 +82,9 @@ const AllFeatureVariables = styled.div`
     flex-direction: column;
 `
 
+const NoProjects = styled.div`
+    font-size: 1.5rem;
+`
 
 
 
@@ -97,5 +100,6 @@ export {
     EnabledDisabledSection, 
     AllFeatureVariables, 
     FeatureHeader, 
-    IndividualVariableStyled
+    IndividualVariableStyled, 
+    NoProjects, 
 }
