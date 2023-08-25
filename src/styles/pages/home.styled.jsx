@@ -86,6 +86,10 @@ const NoProjects = styled.div`
     font-size: 1.5rem;
 `
 
+const NoFeatures = styled(NoProjects)`
+    margin-top: 12px;
+`
+
 
 
 export { 
@@ -102,4 +106,5 @@ export {
     FeatureHeader, 
     IndividualVariableStyled, 
     NoProjects, 
+    NoFeatures, 
 }

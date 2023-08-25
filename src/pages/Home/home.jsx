@@ -5,7 +5,8 @@ import {
     HomePageStyled, 
     WhiteSpan, 
     MainTitle, 
-    NoProjects
+    NoProjects, 
+    NoFeatures, 
 } from "../../styles/pages/home.styled"
 import Spinner from "../../components/spinners/spinner"
 import loaders from "../../loaders"
@@ -20,6 +21,7 @@ function HomePage () {
     const { state } = useLocation()
     const [displayFeatures, setDisplayFeatures] = useState([])
     const [showEmptyProjectsPage, setShowEmptyProjectsPage] = useState(false)
+    const [showEmptyFeaturesMessage, setShowEmptyFeaturesMessage] = useState(false)
 
     const { isLoading, isError, data, error } = useQuery({
         queryKey : ['homepage'], 
@@ -29,11 +31,14 @@ function HomePage () {
     })
 
     useEffect( () => {
-        if (data && data.featureNames.length > 0) {
+        if (data && data.featureNames && data.featureNames.length > 0) {
             setDisplayFeatures(data.featureNames)
             setShowEmptyProjectsPage(false)
         }
-        else if (data && data.featureNames.length == 0){
+        else if (data && data.featureNames && data.featureNames.length === 0) {
+            setShowEmptyFeaturesMessage(true)
+        }
+        else if (data && data.noProjects){
             setShowEmptyProjectsPage(true)
         }
     }, [data])
@@ -54,6 +59,10 @@ function HomePage () {
                 <NoProjects>You Currently Have no Projects</NoProjects> : 
                 <MainTitle><WhiteSpan>Project / </WhiteSpan>{data.projectName}</MainTitle> 
             } 
+            {  showEmptyFeaturesMessage ? 
+                <NoFeatures>You currently have no features for this project</NoFeatures> 
+                : null
+            }
             { displayFeatures.map((featureName, id) => {
                 let feature = data["features"][featureName] 
                 return <IndividualFeature
