@@ -2,9 +2,10 @@ import {
     LogoutButton
 } from '../../styles/components/header/logout.styled'
 import { useMutation } from 'react-query'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from "../../context/authContext"
 import loaders from "../../loaders"
+import removeHomePageProject from '../../utils/removeHomePageProject'
 
 function LogoutUser () {
 
@@ -16,8 +17,8 @@ function LogoutUser () {
             return loaders.auth.LogoutUser()
         }, 
         onSuccess : (data) => {
-            setUser(null)
-            navigate("/login")
+            removeHomePageProject()
+            window.location.reload()
         }, 
         onError : (error) => {
             alert("failed to logout user")
