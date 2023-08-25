@@ -1,6 +1,6 @@
 export default async function PostNewProject ({ user, projectName }) {
     let { accessToken } = user
-    let request = await fetch('http://localhost:3000/projects/make-new-project', {
+    let request = await fetch(import.meta.env.VITE_MAKE_NEW_PROJECT, {
         method : 'POST', 
         credentials : 'include',
         headers: {

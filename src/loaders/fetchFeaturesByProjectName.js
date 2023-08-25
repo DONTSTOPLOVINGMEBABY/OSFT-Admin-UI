@@ -1,6 +1,6 @@
 export default async function FetchFeaturesByProjectName (user, project_name) {
     let { accessToken } = user
-    let request = await fetch('http://localhost:3000/app/features-dropdown?' + new URLSearchParams({ project_name }), {
+    let request = await fetch(import.meta.env.VITE_FETCH_FEATURES_BY_PROJECT_NAME + new URLSearchParams({ project_name }), {
         method : 'GET', 
         credentials: 'include', 
         headers: {

@@ -1,6 +1,6 @@
 export async function updateVariableDevStatus ({user, variableName, parentFeatureName, parentProjectName}) {
     let { accessToken } = user
-    let request = await fetch('http://localhost:3000/variables/update-development-status', {
+    let request = await fetch(import.meta.env.VITE_CHANGE_VARIABLE_DEV_STATUS, {
         method : 'POST', 
         credentials : 'include',
         headers : {
@@ -18,7 +18,7 @@ export async function updateVariableDevStatus ({user, variableName, parentFeatur
 
 export async function updateVariableProdStatus ({user, variableName, parentFeatureName, parentProjectName}) {
     let { accessToken } = user
-    let request = await fetch('http://localhost:3000/variables/update-production-status', {
+    let request = await fetch(import.meta.env.VITE_CHANGE_VARIABLE_PROD_STATUS, {
         method : 'POST', 
         credentials : 'include',
         headers : {

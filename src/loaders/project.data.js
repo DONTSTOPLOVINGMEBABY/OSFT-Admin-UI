@@ -1,7 +1,7 @@
 
 export default async function ProjectLoader (user) {
     let {accessToken} = user
-    let request = await fetch('http://localhost:3000/app/projects', {
+    let request = await fetch(import.meta.env.VITE_PROJECT_LOADER, {
         method: 'GET', 
         credentials : 'include',
         headers: {

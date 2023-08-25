@@ -7,7 +7,7 @@ export default async function PostNewFeature ({
     projectName 
 }) {
     let { accessToken } = user
-    let request = await fetch('http://localhost:3000/features/make-new-feature', {
+    let request = await fetch(import.meta.env.VITE_MAKE_NEW_FEATURE, {
         method : 'POST', 
         credentials : 'include',
         headers: {

@@ -1,6 +1,6 @@
 export default async function FeaturesLoader (user) {
     let {accessToken} = user
-    let request = await fetch('http://localhost:3000/app/features', {
+    let request = await fetch(import.meta.env.VITE_FETCH_FEATURES, {
         method: 'GET', 
         credentials : 'include',
         headers: {

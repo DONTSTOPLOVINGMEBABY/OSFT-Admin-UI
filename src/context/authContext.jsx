@@ -20,7 +20,7 @@ function AuthProvider ({ children }) {
             throw new Error('FAILED TO LOGIN: User credentials not provided')
         }
         try {
-            let request = await fetch('http://localhost:3000/auth/login', {
+            let request = await fetch( import.meta.env.VITE_LOGIN , {
                 method: 'POST',
                 credentials : 'include', 
                 headers : { 
@@ -44,7 +44,7 @@ function AuthProvider ({ children }) {
 
     const attemptCookieLogin = async () => {
         try {
-            let request = await fetch('http://localhost:3000/auth/launch-app', {
+            let request = await fetch( import.meta.env.VITE_ATTEMPT_COOKIE_LOGIN , {
                 method: 'POST', 
                 credentials: 'include', 
             })
@@ -68,7 +68,7 @@ function AuthProvider ({ children }) {
 
     const signUpUser = async (username, password, confirm_password) => {
         try {
-            let request = await fetch('http://localhost:3000/auth/sign-up', {
+            let request = await fetch( import.meta.env.VITE_SIGNUP , {
                 method : 'POST', 
                 credentials: 'include', 
                 headers: {

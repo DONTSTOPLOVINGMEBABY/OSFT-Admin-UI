@@ -5,7 +5,7 @@ export default async function PostMakeNewVariable ({
     projectName 
 }) {
     let { accessToken } = user
-    let request = await fetch('http://localhost:3000/variables/make-new-variable', {
+    let request = await fetch(import.meta.env.VITE_MAKE_NEW_VARIABLE, {
         method : 'POST', 
         credentials : 'include',
         headers: {

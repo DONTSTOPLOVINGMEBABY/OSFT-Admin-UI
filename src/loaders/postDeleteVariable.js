@@ -6,7 +6,7 @@ export default async function DeleteVariable (
     }
 ) {
     let { accessToken } = user
-    let request = await fetch('http://localhost:3000/variables/delete-variable', {
+    let request = await fetch(import.meta.env.VITE_DELETE_VARIABLE, {
         method : 'DELETE', 
         credentials : 'include',
         headers: {

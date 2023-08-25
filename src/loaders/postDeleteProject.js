@@ -1,6 +1,6 @@
 export default async function DeleteProject ({ user, projectName }) {
     let { accessToken } = user
-    let request = await fetch('http://localhost:3000/projects/delete-project', {
+    let request = await fetch(import.meta.env.VITE_DELETE_PROJECT, {
         method : 'DELETE', 
         credentials : 'include',
         headers: {

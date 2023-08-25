@@ -1,5 +1,5 @@
 export default async function LogoutUser () {
-    let request = await fetch('http://localhost:3000/auth/logout', {
+    let request = await fetch(import.meta.env.VITE_POST_LOGOUT_USER, {
         method : 'DELETE', 
         credentials : 'include', 
     })

@@ -1,6 +1,6 @@
 export default async function DeleteFeature ({ user, featureName, projectName }) {
     let { accessToken } = user
-    let request = await fetch('http://localhost:3000/features/delete-feature', {
+    let request = await fetch(import.meta.env.VITE_DELETE_FEATURE, {
         method : 'DELETE', 
         credentials : 'include',
         headers: {
