@@ -8,6 +8,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import DeleteXItem from "../../components/deleteXItem"
 import loaders from '../../loaders'
+import setHomePageProject from "../../utils/setHomePageProject";
 
 
 function ProjectOverview ({ project_data }) {
@@ -16,6 +17,7 @@ function ProjectOverview ({ project_data }) {
 
     const loadProject = () => {
         let project_name = project_data.name
+        setHomePageProject(project_name)
         navigate(`/home`, {
             state: project_name
         })

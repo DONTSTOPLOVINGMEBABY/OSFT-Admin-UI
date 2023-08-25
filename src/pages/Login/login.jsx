@@ -27,10 +27,7 @@ function Login () {
         setLoading(true)
         let username = usernameRef.current.value
         let password = passwordRef.current.value
-        console.log(username)
-        console.log(password)
         let loginResponse = await loginUser(username, password)
-        console.log(loginResponse)
         if (loginResponse.status){
             setShowErrors(true)
             if (!Array.isArray(loginResponse.data.errors)){
@@ -40,6 +37,7 @@ function Login () {
                 setErrorMessages(loginResponse.data.errors)
             }
         }
+        setLoading(false)
     }
 
     return ( 

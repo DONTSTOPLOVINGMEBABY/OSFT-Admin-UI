@@ -5,7 +5,7 @@ const WrapLink = ({ className, to, children }) => (
     <Link className={className} to={to}>{children}</Link>
 )
 
-const LogoStyled = styled(WrapLink)`
+const LogoStyled = styled.button`
     display: flex;
     height: 100%;
     justify-content: center;
@@ -13,6 +13,8 @@ const LogoStyled = styled(WrapLink)`
     cursor: pointer;
     margin-right: 20px;
     text-decoration: none;
+    background-color: inherit;
+    border: none;
 `
 
 const LogoImage = styled.img`
