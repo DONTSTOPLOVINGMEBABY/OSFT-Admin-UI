@@ -1,7 +1,7 @@
 import { HeaderStyled, NavBar, MenuItems } from "../../styles/components/header/header.styled"
 import Logo from "./logo"
 import AppNavigation from "./app-navigation"
-import AccountOptions from "./account-options"
+import LogoutUser from "./logout-user"
 import { useAuth } from '../../context/authContext'
  
 function LoggedInHeader () {
@@ -11,7 +11,7 @@ function LoggedInHeader () {
                 <Logo />
                 <MenuItems>
                     <AppNavigation />
-                    <AccountOptions />
+                    <LogoutUser />
                 </MenuItems>
             </NavBar>
         </HeaderStyled>

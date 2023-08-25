@@ -28,7 +28,7 @@ function Login () {
         let username = usernameRef.current.value
         let password = passwordRef.current.value
         let loginResponse = await loginUser(username, password)
-        if (loginResponse.status){
+        if (loginResponse){
             setShowErrors(true)
             if (!Array.isArray(loginResponse.data.errors)){
                 setErrorMessages([loginResponse.data.errors])

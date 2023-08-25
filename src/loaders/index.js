@@ -18,6 +18,7 @@ import DeleteFeature from "./postDeleteFeature"
 import DeleteVariable from "./postDeleteVariable"
 import FetchFeaturesByProjectName from "./fetchFeaturesByProjectName"
 import PostMakeNewVariable from "./postMakeNewVariable"
+import LogoutUser from "./postLogoutUser"
 
 const loaders = {
     'projects' : { 
@@ -45,6 +46,9 @@ const loaders = {
     }, 
     'home-page' : {
         FetchHomePage
+    }, 
+    "auth" : {
+        LogoutUser,
     }
 }
 

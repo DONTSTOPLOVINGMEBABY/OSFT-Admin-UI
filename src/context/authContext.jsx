@@ -100,6 +100,7 @@ function AuthProvider ({ children }) {
 
     const context = {
         user, 
+        setUser, 
         loginUser, 
         signUpUser, 
     }
