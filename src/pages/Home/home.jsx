@@ -34,6 +34,7 @@ function HomePage () {
         if (data && data.featureNames && data.featureNames.length > 0) {
             setDisplayFeatures(data.featureNames)
             setShowEmptyProjectsPage(false)
+            setShowEmptyFeaturesMessage(false)
         }
         else if (data && data.featureNames && data.featureNames.length === 0) {
             setShowEmptyFeaturesMessage(true)
