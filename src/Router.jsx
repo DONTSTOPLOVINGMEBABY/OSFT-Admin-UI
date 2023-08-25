@@ -13,6 +13,7 @@ import Features from "./pages/Features/features"
 import Variables from "./pages/Variables/variables"
 import ApiKeys from "./pages/Api-Keys/apiKeys"
 import SignUp from "./pages/Signup/Signup"
+import NotFoundPage from "./pages/404/404"
 
 function Router () {
     
@@ -33,6 +34,7 @@ function Router () {
                         <Route path="variables" element={<Variables/>}/>
                         <Route path="api-keys" element={<ApiKeys/>}/>
                     </Route>
+                    <Route path="*" element={<NotFoundPage/>}/>
                 </Routes>
                 <Footer />
             </AuthProvider>
