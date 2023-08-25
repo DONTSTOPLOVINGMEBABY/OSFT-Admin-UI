@@ -3,13 +3,10 @@ import {
     useContext, 
     useState, 
     useEffect, 
-    useMemo, 
 } from "react"
-import { useMutation } from "react-query"
-
 import { useNavigate } from "react-router-dom"
 import Spinner from "../components/spinners/spinner"
-import { Outlet } from "react-router-dom"
+import removeHomePageProject from "../utils/removeHomePageProject"
 
 const AuthContext = createContext()
 
@@ -36,6 +33,7 @@ function AuthProvider ({ children }) {
             })
             let data = await request.json()
             if (!request.ok){ return { data : data, status : request.status } }
+            removeHomePageProject()
             setUser(data)
             setLoading(false)
             navigate('/home')
@@ -52,7 +50,12 @@ function AuthProvider ({ children }) {
             })
             let data = await request.json()
             if (!request.ok){ 
-                navigate('/login')
+                if (window.location.pathname === '/signup'){
+                    navigate('/signup')
+                }
+                else {
+                    navigate('/login')
+                }
                 setLoading(false)
                 return { data : data, status : request.status }
             }
@@ -63,9 +66,29 @@ function AuthProvider ({ children }) {
         }
     }
 
-    const signUpUser = async () => {
+    const signUpUser = async (username, password, confirm_password) => {
         try {
-            
+            let request = await fetch('http://localhost:3000/auth/sign-up', {
+                method : 'POST', 
+                credentials: 'include', 
+                headers: {
+                    'Content-Type' : 'application/json'
+                }, 
+                body: JSON.stringify({
+                    username, 
+                    password, 
+                    confirm_password
+                })
+            })
+            let data = await request.json()
+            console.log(data)
+            if (!request.ok){
+                return { data : data, status: request.status }
+            }
+            removeHomePageProject()
+            setUser(data)
+            setLoading(false)
+            navigate("/home")
         } catch (error) {
 
         }
@@ -78,6 +101,7 @@ function AuthProvider ({ children }) {
     const context = {
         user, 
         loginUser, 
+        signUpUser, 
     }
 
     return <AuthContext.Provider value={context}>
