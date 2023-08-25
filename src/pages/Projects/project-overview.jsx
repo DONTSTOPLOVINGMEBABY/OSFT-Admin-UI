@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import DeleteXItem from "../../components/deleteXItem"
 import loaders from '../../loaders'
 import setHomePageProject from "../../utils/setHomePageProject";
-
+import removeHomePageProject from "../../utils/removeHomePageProject";
 
 function ProjectOverview ({ project_data }) {
 
@@ -23,9 +23,14 @@ function ProjectOverview ({ project_data }) {
         })
     }
 
+    const cleanUpDelete = () => {
+        removeHomePageProject()
+    }
+
+
     return ( project_data ? 
         <ProjectOverviewStyled onClick={loadProject}>
-            <DeleteXItem
+            <DeleteXItem 
             loader_function={loaders.projects.DeleteProject}
             invalidate_queries={[
                 "features", 
@@ -37,6 +42,7 @@ function ProjectOverview ({ project_data }) {
             request_body={{
                 projectName : project_data.name
             }}
+            cleanUpFunction={cleanUpDelete}
             />
             <OverviewTitle>{project_data.name}</OverviewTitle>
             <ProjectDetails>                

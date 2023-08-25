@@ -31,16 +31,20 @@ function HomePage () {
     })
 
     useEffect( () => {
-        if (data && data.featureNames && data.featureNames.length > 0) {
-            setDisplayFeatures(data.featureNames)
-            setShowEmptyProjectsPage(false)
+        if (data && data.noProjects){
+            setShowEmptyProjectsPage(true)
             setShowEmptyFeaturesMessage(false)
+            setDisplayFeatures([])
         }
         else if (data && data.featureNames && data.featureNames.length === 0) {
             setShowEmptyFeaturesMessage(true)
+            setShowEmptyProjectsPage(false)
+            setDisplayFeatures([])
         }
-        else if (data && data.noProjects){
-            setShowEmptyProjectsPage(true)
+        else if (data && data.featureNames && data.featureNames.length > 0) {
+            setDisplayFeatures(data.featureNames)
+            setShowEmptyProjectsPage(false)
+            setShowEmptyFeaturesMessage(false)
         }
     }, [data])
 

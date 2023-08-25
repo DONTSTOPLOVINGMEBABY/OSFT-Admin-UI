@@ -16,6 +16,7 @@ function DeleteXItem ({
     request_body, 
     top, 
     left, 
+    cleanUpFunction
 }) {
     
     const { user } = useAuth()
@@ -50,6 +51,7 @@ function DeleteXItem ({
             user, 
             ...request_body, 
         })
+        if (cleanUpFunction){ cleanUpFunction() }
     }
 
     return (
