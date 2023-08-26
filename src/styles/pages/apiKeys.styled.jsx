@@ -60,11 +60,12 @@ const KeyType = styled.div`
 const ApiKey = styled.div`
     display: flex;
     align-items: center;
-    height: 50px;
+    height: 38px;
+    border-radius: 5px ;
     width: 40%;
     background-color: #575757;
     overflow: auto;
-    padding: 4px;
+    padding: 6px;
     margin-right: 8px;
 `
 
