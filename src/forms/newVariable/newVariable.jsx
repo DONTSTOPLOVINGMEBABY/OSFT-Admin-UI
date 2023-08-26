@@ -13,6 +13,7 @@ import ErrorMessage from "../../components/errorMessage"
 import { useMutation, useQueryClient } from "react-query"
 import loaders from "../../loaders"
 import GetErrorMessagesFromString from "../../utils/getErrorMessages"
+import AdjustableSpinner from "../../components/spinners/adjustableSizeSpinner"
 import { useAuth } from "../../context/authContext"
 
 const NewVariable = forwardRef(function NewVariable(props, ref){
@@ -52,6 +53,7 @@ const NewVariable = forwardRef(function NewVariable(props, ref){
 
     const createVariable = (e) => {
         e.preventDefault()
+        setLoading(true)
         if (loading) { return }
         createVariableMutation.mutate({
             user, 
@@ -79,6 +81,7 @@ const NewVariable = forwardRef(function NewVariable(props, ref){
                     : null  
                 } 
                 <ProjectDropDown 
+                projectSelected={selectedProject}
                 setProjectDropDownValue={setSelectedProject}
                 />
                 { !!selectedProject ?

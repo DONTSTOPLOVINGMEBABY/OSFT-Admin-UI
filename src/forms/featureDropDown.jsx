@@ -63,7 +63,6 @@ function FeatureDropDown ({
                 })
             }}
             onChange={(selectedOption) => { 
-                console.log('selected: ', selectedOption)
                 setSelectedValue(selectedOption)
                 setFeatureDropDownValue(selectedOption.value) 
             }}

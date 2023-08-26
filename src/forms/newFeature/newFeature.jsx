@@ -39,6 +39,7 @@ const NewFeature = forwardRef(function NewFeature(props, ref){
             featureNameRef.current.value = ''
             initialVariableRef.current.value = ''
             descriptionRef.current.value = ''
+            setSelectedProject(null)
             ref.current.close()
             queryClient.refetchQueries('projects')
             queryClient.refetchQueries('features')
@@ -84,6 +85,7 @@ const NewFeature = forwardRef(function NewFeature(props, ref){
                     }) : null
                 }
                 <ProjectDropDown
+                projectSelected={selectedProject}
                 setProjectDropDownValue={setSelectedProject}
                 />
                 <FeatureInputBox 

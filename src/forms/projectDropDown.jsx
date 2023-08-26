@@ -5,11 +5,13 @@ import { useQuery } from "react-query"
 import { useEffect, useState } from "react"
 
 function ProjectDropDown ({
+    projectSelected, 
     setProjectDropDownValue
 }) {
 
     const [allProjects, setAllProjects] = useState([])
     const { data, isLoading, error } = useQuery(['projects'], loaders.projects.ProjectLoader)
+    const [selectedValue, setSelectedValue] = useState(null)
 
     useEffect(() => {
         if (data){
@@ -24,8 +26,15 @@ function ProjectDropDown ({
         }
     }, [data])
 
+    useEffect(() => {
+        if (!projectSelected){
+            setSelectedValue(null)
+        }
+    }, [projectSelected])
+
     return (
         <Select 
+            value={selectedValue}
             options={allProjects}
             placeholder={"Pick a Project"}
             styles={{
@@ -35,7 +44,10 @@ function ProjectDropDown ({
                     margin : '12px', 
                 })
             }}
-            onChange={(selectedOption) => setProjectDropDownValue(selectedOption.value)}
+            onChange={(selectedOption) => { 
+                setSelectedValue(selectedOption)
+                setProjectDropDownValue(selectedOption.value) 
+            }}
         />
     )
 
