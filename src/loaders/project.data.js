@@ -5,7 +5,7 @@ export default async function ProjectLoader (user) {
         method: 'GET', 
         credentials : 'include',
         headers: {
-            'Authorization' : `BEARER ${accessToken}`
+            'Authorization' : `Bearer ${accessToken}`
         }
     }) 
     return await request.json()

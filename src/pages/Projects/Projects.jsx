@@ -24,7 +24,7 @@ function ProjectPage () {
     })
 
     useEffect( () => {
-        if (data){
+        if (data && data.names){
             setDisplayProjects(data.names)
         }
     }, [data])

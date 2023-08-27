@@ -14,7 +14,7 @@ function ProjectDropDown ({
     const [selectedValue, setSelectedValue] = useState(null)
 
     useEffect(() => {
-        if (data){
+        if (data && data.names){
             let options = []
             data.names.forEach( name => {
                 options.push({

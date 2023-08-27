@@ -4,7 +4,7 @@ export default async function FeaturesLoader (user) {
         method: 'GET', 
         credentials : 'include',
         headers: {
-            'Authorization' : `BEARER ${accessToken}`
+            'Authorization' : `Bearer ${accessToken}`
         }
     }) 
     return await request.json()

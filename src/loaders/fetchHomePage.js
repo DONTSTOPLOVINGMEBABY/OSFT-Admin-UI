@@ -7,7 +7,7 @@ export default async function FetchHomePage (user, project_name=null) {
             method: 'GET', 
             credentials : 'include',
             headers: {
-            'Authorization' : `BEARER ${accessToken}`
+            'Authorization' : `Bearer ${accessToken}`
             }
         })
     }
@@ -16,7 +16,7 @@ export default async function FetchHomePage (user, project_name=null) {
             method: 'GET', 
             credentials : 'include',
             headers: {
-            'Authorization' : `BEARER ${accessToken}`
+            'Authorization' : `Bearer ${accessToken}`
             }
         })
     }
