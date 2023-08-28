@@ -58,6 +58,7 @@ const titleBoxOutline = styled.div`
     align-items: center;
     color: ${ props => props.theme.font.color };
     font-weight: 500;
+    text-align: center;
 `
 
 const First = styled(titleBoxOutline)`
