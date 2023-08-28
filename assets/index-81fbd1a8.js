@@ -361,7 +361,7 @@ Error generating stack: `+o.message+`
     justify-content: center;
     align-items: baseline;
     width: 100%;
-    height: 100%;
+    flex: 1 ; 
     background-color: ${e=>e.theme.background.main} ;
     padding: 50px;
 `,r2=k.main`
