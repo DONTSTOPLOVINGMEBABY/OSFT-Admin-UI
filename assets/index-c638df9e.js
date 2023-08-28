@@ -769,6 +769,7 @@ Error generating stack: `+o.message+`
     align-items: center;
     color: ${e=>e.theme.font.color};
     font-weight: 500;
+    text-align: center;
 `,us=k(nd)`
     grid-column: 1/2;
 `,ls=k(nd)`
