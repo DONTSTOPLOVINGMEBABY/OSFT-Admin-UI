@@ -14,6 +14,8 @@ import Variables from "./pages/Variables/variables"
 import ApiKeys from "./pages/Api-Keys/apiKeys"
 import SignUp from "./pages/Signup/Signup"
 import NotFoundPage from "./pages/404/404"
+import Docs from "./pages/docs/docs"
+import JSClientDocumentation from "./pages/docs/js-client"
 
 function Router () {
     

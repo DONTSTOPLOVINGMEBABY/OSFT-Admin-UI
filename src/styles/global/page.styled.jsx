@@ -3,8 +3,9 @@ import styled from "styled-components"
 const MainPageWrapperStyled = styled.div`
     display: flex;
     justify-content: center;
+    align-items: baseline;
     width: 100%;
-    height: fit-content;
+    height: 100%;
     background-color: ${ props => props.theme.background.main } ;
     padding: 50px;
 `

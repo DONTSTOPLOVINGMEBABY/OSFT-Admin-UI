@@ -14,7 +14,8 @@ function NotFoundPage () {
         let homepageProject = getHomePageProject()
         setTimeout(() => {
             navigate("/home", {
-                state: homepageProject ? homepageProject : null 
+                state: homepageProject ? homepageProject : null, 
+                replace: true,  
             })
         }, 3000)    
     }, [])
