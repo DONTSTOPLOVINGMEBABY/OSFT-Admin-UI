@@ -80,9 +80,6 @@ function Login () {
             <WantTo>
                 Want to make an account? <CustomLink to="/signup">Signup</CustomLink>
             </WantTo>
-            <WantTo>
-                Want to try a demo? <CustomLink to="/demo">Click here</CustomLink>
-            </WantTo>
             </LoginForm> 
         </LoginPageStyled>
     )
