@@ -1,3 +1,4 @@
+/* 
 import ReactMarkDown from "react-markdown"
 
 const js_markdown = `# Feature-Toggles-JS-SDK
@@ -63,6 +64,16 @@ The FeatureToggleClient extends the EventTarget class, which means that you can 
 function JSClientDocumentation () {
     return (
         <ReactMarkDown children={js_markdown}/>
+    )
+}
+
+export default JSClientDocumentation
+
+*/
+
+function JSClientDocumentation () {
+    return (
+        <h1>Nada</h1>
     )
 }
 
