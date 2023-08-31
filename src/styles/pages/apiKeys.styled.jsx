@@ -69,6 +69,17 @@ const ApiKey = styled.div`
     margin-right: 8px;
 `
 
+const NoApiKeys = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: ${ props => props.theme.font.color };
+    font-size: 2rem;
+    padding: 100px;
+`
+
 
 export {
     ApiKeyPageStyled, 
@@ -79,4 +90,5 @@ export {
     SingleKey, 
     KeyType,
     ApiKey, 
+    NoApiKeys,
 }

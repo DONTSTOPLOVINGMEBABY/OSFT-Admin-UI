@@ -9,7 +9,7 @@ import Spinner from "../../components/spinners/spinner"
 import SingleProjectEntry from "./singleProjectEntry"
 import { useAuth } from "../../context/authContext"
 import loaders from "../../loaders"
-
+import { NoApiKeys } from "../../styles/pages/apiKeys.styled"
 
 function ApiKeys () {
 
@@ -47,6 +47,12 @@ function ApiKeys () {
             buttonModal={false}
             />
             <ApiKeyBody>
+                { displayProjects.length === 0 ? 
+                    <NoApiKeys>
+                        Create a project to make your first Api-Keys!
+                    </NoApiKeys>
+                    : null 
+                }
                 { displayProjects.map( (projectName, id) => {
                     let project = data[projectName]
                     return ( 
