@@ -12,6 +12,7 @@ import FeatureDropDown from "../featureDropDown"
 import ErrorMessage from "../../components/errorMessage"
 import { useMutation, useQueryClient } from "react-query"
 import loaders from "../../loaders"
+import CloseForm from "../closeForm"
 import GetErrorMessagesFromString from "../../utils/getErrorMessages"
 import AdjustableSpinner from "../../components/spinners/adjustableSizeSpinner"
 import { useAuth } from "../../context/authContext"
@@ -66,6 +67,7 @@ const NewVariable = forwardRef(function NewVariable(props, ref){
     return (
         <NewVariableStyled ref={ref}>
             <NewVariableForm onSubmit={createVariable}>
+                <CloseForm modal={ref}/>
                 <FormTitle>New Variable</FormTitle>
                 {   showError ? 
                     errorMessages.map((message, index) => {
