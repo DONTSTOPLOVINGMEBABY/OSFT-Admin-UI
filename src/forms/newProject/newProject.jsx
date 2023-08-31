@@ -6,7 +6,7 @@ import {
     SubmitButton, 
     LoadingSubmit, 
 } from "../../styles/forms/newProject.styled"
-import { forwardRef, useEffect, useRef, useState } from "react";
+import { forwardRef, useRef, useState } from "react";
 import CloseForm from "../closeForm";
 import AdjustableSpinner from '../../components/spinners/adjustableSizeSpinner'
 import { useMutation, useQueryClient } from "react-query"; 
@@ -30,7 +30,6 @@ const NewProject = forwardRef(function NewProject(props, ref) {
         return loaders.projects.PostNewProject(args)
       }, 
       onSuccess : (data) => {
-        console.log('worked')
         setLoading(false)
         projectNameInput.current.value = ''
         ref.current.close()
@@ -48,7 +47,6 @@ const NewProject = forwardRef(function NewProject(props, ref) {
       e.preventDefault()
       if (loading) {return}
       setLoading(true)
-      console.log('hello there')
       createProjectMutation.mutate({
         user, 
         projectName : projectNameInput.current.value, 
@@ -70,7 +68,10 @@ const NewProject = forwardRef(function NewProject(props, ref) {
                 <FormInput   
                 ref={projectNameInput}
                 placeholder="Project Name"
-                onChange={ () => setShowError(false) }
+                onChange={ () => { 
+                  setShowError(false) 
+                  projectNameInput.current.value = projectNameInput.current.value.replace(/[^a-zA-Z0-9-]/g, '')
+                }}
                 />
                 { loading ? 
                   <LoadingSubmit>

@@ -92,13 +92,19 @@ const NewFeature = forwardRef(function NewFeature(props, ref){
                 type="text"
                 placeholder="Feature Name"
                 ref={featureNameRef}
-                onChange={ () => setShowError(false) }
+                onChange={ () => { 
+                    setShowError(false) 
+                    featureNameRef.current.value = featureNameRef.current.value.replace(/[^a-zA-Z0-9-]/g, '')
+                }}
                 />
                 <FeatureInputBox 
                 type="text"
                 placeholder="Initial Variable Name"
                 ref={initialVariableRef}
-                onChange={ () => setShowError(false) }
+                onChange={ () => { 
+                    setShowError(false) 
+                    initialVariableRef.current.value = initialVariableRef.current.value.replace(/[^a-zA-Z0-9-]/g, '')
+                }}
                 />
                 <DescriptionBox
                 defaultValue="A description of your feature"

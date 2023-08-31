@@ -94,7 +94,10 @@ const NewVariable = forwardRef(function NewVariable(props, ref){
                 type="text"
                 placeholder="Variable Name"
                 ref={variableNameInputRef}
-                onChange={() => setShowError(false)}          
+                onChange={() => { 
+                    setShowError(false)
+                    variableNameInputRef.current.value = variableNameInputRef.current.value.replace(/[^a-zA-Z0-9-]/g, '')
+                }}          
                 />
                 { loading ? 
                     <LoadingButton onClick={createVariable}>
