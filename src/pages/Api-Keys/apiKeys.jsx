@@ -49,7 +49,7 @@ function ApiKeys () {
             <ApiKeyBody>
                 { displayProjects.length === 0 ? 
                     <NoApiKeys>
-                        Create a project to make your first Api-Keys!
+                        Create a project to receive your first set of Api-Keys!
                     </NoApiKeys>
                     : null 
                 }
