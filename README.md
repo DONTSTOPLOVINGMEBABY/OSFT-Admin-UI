@@ -5,9 +5,10 @@
 OSFT stands for 'Open Source Feature Toggles'. It is a small feature flagging service that allows developers to register and run highly performant feature toggles on their Javascript and React applications (for free!). Below is an example of an OSFT client running on a React YouTube Clone I built.   
 
 <div align="center">
-  <img src="https://hjacobs-rest-api-production.up.railway.app/osft/720-gif" alt="osft-demo"/>
+  <img src="https://hjacobs-rest-api-production.up.railway.app/osft/1440-gif" alt="osft-demo"/>
 </div>
 
+#### [Click here if you would like to see the full video of this example](https://hjacobs-rest-api-production.up.railway.app/osft/raw-video-example)  
 
 #### Built With
 
