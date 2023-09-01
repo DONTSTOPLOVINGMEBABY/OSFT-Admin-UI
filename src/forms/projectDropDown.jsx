@@ -3,14 +3,16 @@ import Select from "react-select"
 import loaders from "../loaders"
 import { useQuery } from "react-query"
 import { useEffect, useState } from "react"
+import { useAuth } from "../context/authContext"
 
 function ProjectDropDown ({
     projectSelected, 
     setProjectDropDownValue
 }) {
 
+    const { user } = useAuth()
     const [allProjects, setAllProjects] = useState([])
-    const { data, isLoading, error } = useQuery(['projects'], loaders.projects.ProjectLoader)
+    const { data, isLoading, error } = useQuery(['projects'], () => loaders.projects.ProjectLoader(user))
     const [selectedValue, setSelectedValue] = useState(null)
 
     useEffect(() => {
