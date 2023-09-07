@@ -14,6 +14,7 @@ import { NoApiKeys } from "../../styles/pages/apiKeys.styled"
 function ApiKeys () {
 
     const [displayProjects, setDisplayProjects] = useState([])
+    const [numProjects, setNumProjects] = useState(0)
     const { user } = useAuth()
 
     const { isLoading, isError, data, error } = useQuery({
@@ -24,6 +25,7 @@ function ApiKeys () {
     useEffect(() => {
         if (data) {
             setDisplayProjects(data.names)
+            setNumProjects(data.names.length)
         }
     }, [data])
 
@@ -47,7 +49,7 @@ function ApiKeys () {
             buttonModal={false}
             />
             <ApiKeyBody>
-                { displayProjects.length === 0 ? 
+                { numProjects === 0 ? 
                     <NoApiKeys>
                         Create a project to receive your first set of Api-Keys!
                     </NoApiKeys>
